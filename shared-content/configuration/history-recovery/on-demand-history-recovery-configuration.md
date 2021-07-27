@@ -26,32 +26,32 @@ The PI adapter supports performing history recovery on-demand by specifying star
 
 Parameter | Type| Description
 ---------|----------|---------
- **id** | `string` | The Id of the history recovery<br><br> **Note:** You cannot run multiple discoveries with the same Id.
- **startTime** | `datetime` | Time when the the first data items are collected.
- **endTime** | `datetime`| Time when the last data items are collected.
-| **checkpoint** | `double` | The latest timestamp that the history recovery has completed with the range being between **startTime** and **endTime**.
-| **items** | `double` | The amount of data selection items in the history recovery operation.
-| **recoveredEvents** | `double` | Number of events that the history recovery found on the data source.
-| **progress** | `double` | Progress of the history recovery (number of data items found through the history recovery).
-| **status** | `enum` | Status of the history recovery.<br><br>The following statuses are available:<br> - *Active* - The operation is currently in progress<br>- *Complete* - The operation has been completed<br>- *Canceled* - The operation has been canceled<br>- *Failed* - The operation failed
-| **errors** | `string` | Errors encountered during the history recovery.
+ **Id** | `string` | The Id of the history recovery<br><br> **Note:** You cannot run multiple discoveries with the same Id.
+ **StartTime** | `datetime` | Time when the the first data items are collected.
+ **EndTime** | `datetime`| Time when the last data items are collected.
+| **Checkpoint** | `double` | The latest timestamp that the history recovery has completed with the range being between **startTime** and **endTime**.
+| **Items** | `double` | The amount of data selection items in the history recovery operation.
+| **RecoveredEvents** | `double` | Number of events that the history recovery found on the data source.
+| **Progress** | `double` | Progress of the history recovery (number of data items found through the history recovery).
+| **Status** | `enum` | Status of the history recovery.<br><br>The following statuses are available:<br> - *Active* - The operation is currently in progress<br>- *Complete* - The operation has been completed<br>- *Canceled* - The operation has been canceled<br>- *Failed* - The operation failed
+| **Errors** | `string` | Errors encountered during the history recovery.
 
 ## History recovery status example
 
 ```json
-[{ 
-
-  "id": "HistoryRecovery1", 
-  "startTime": "2021-01-09T05:55:00.0", 
-  "endTime": "2021-01-26T13:20:00.0", 
-  "checkPoint": "2021-01-13T14:55:00.0", 
-  "items": 7000, 
-  "recoveredEvents": 800000, 
-  "progress": 20, 
-  "status": "Active", 
-  "errors": null 
-
-}] 
+[
+ { 
+   "Id": "HistoryRecovery1", 
+   "StartTime": "2021-01-09T05:55:00.0", 
+   "EndTime": "2021-01-26T13:20:00.0", 
+   "CheckPoint": "2021-01-13T14:55:00.0", 
+   "Items": 7000, 
+   "RecoveredEvents": 800000, 
+   "Progress": 20, 
+   "Status": "Active", 
+   "Errors": null 
+ }
+] 
 ```
 
 **Note:** The result of the history recovery operation is added to the `<componentId>_historyRecoveries.json` file.
