@@ -4,7 +4,7 @@ uid: AdapterMetadata
 
 # Metadata
 
-If the metadataLevel is set to `Low` or higher in the [General configuration](xref:GeneralConfiguration), adapter streams created by the ingress components include the following metadata:
+If the metadataLevel is set to `Low`, `Medium`, or `High` in the [General configuration](xref:GeneralConfiguration), adapter streams created by the ingress components include the following metadata:
 
 ```code
   Datasource: {ComponentId}
