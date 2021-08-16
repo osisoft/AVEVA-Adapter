@@ -49,7 +49,7 @@ For time zones that support time changes between daylight and standard times, a 
 
 The text parser can use time zones, cultures, and custom formats to read dates and times from ingress data.
 
-You can specify date and time formats when you configure data selection. Set the date and time using the `TimeFormat` property. If you leave the `TimeFormat` property unset, the data selection configuration defaults to the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format.
+You can specify date and time formats when you configure data selection. Set the date and time using the `IndexFormat` property. If you leave the `IndexFormat` property unset, the data selection configuration defaults to the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format.
 
 If you are using a culture other than default `en-US`, use the name of day or month specific to the culture. For example, use "Juni" instead of "June" for the `de-DE` culture.
 
