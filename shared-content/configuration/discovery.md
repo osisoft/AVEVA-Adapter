@@ -28,7 +28,7 @@ Data discovery includes different routes. For example, you can choose to do the 
     Example using `curl`:
 
     ```bash
-    curl -d "{ \"Id\":\"TestDiscovery\", \"autoSelect\":true }" -X POST "http://localhost:5590/api/v1/configuration/<ComponentId>/Discoveries"
+    curl -d "{ \"Id\":\"TestDiscovery\", \"autoSelect\":true }" - H "Content-Type:application/json" -X POST "http://localhost:5590/api/v1/configuration/<ComponentId>/Discoveries"
     ```
 
 ## Discovery parameters
