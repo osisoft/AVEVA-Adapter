@@ -4,7 +4,7 @@ uid: JSONPathSyntaxForValueRetrieval
 
 # JSONPath syntax for value retrieval
 
-For information on which semantic is used for retrieving values from JSON files, see [JSONPath - XPath for JSON](https://goessner.net/articles/JsonPath/).
+For information on which semantic is used for retrieving values from JSON files, see [JSONPath Syntax](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html).
 
 The following syntax is used to extract values from JSON documents.
 
