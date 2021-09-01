@@ -33,6 +33,25 @@ The following data types are supported by the text parser:
 
 **Note:** Not all data types supported by the text parser are also supported by OMF.
 
+### Special characters support
+
+As part of the default **StreamId** logic, the text parser replaces special characters as follows:
+
+Special character | Replacement character |
+---------|----------|
+ `*` | empty string |
+ `'` | empty string |
+`` ` `` | empty string |
+`"` | empty string |
+ `?` | empty string |
+`;` | `-`|
+`\|` | `-` |
+`\` | `-` |
+`{` | `(`|
+`}` | `)` |
+`[` | `(`|
+`]` | `)` |
+
 ## Culture support
 
 Some numeric values and datetimes support cultures when they are being parsed. The default culture is `en-US (US English)` (InvariantCulture). OSIsoft recommends that you leave the adapter at the default unless you expect culturally variant input.
