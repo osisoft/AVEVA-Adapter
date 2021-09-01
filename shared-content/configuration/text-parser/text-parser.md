@@ -35,22 +35,24 @@ The following data types are supported by the text parser:
 
 ### Special characters support
 
-The text parser replaces special characters used in the **StreamId** parameter string as follows:
+The text parser encodes special characters used in the **StreamId** parameter string as follows:
 
-Special character | Replacement character |
----------|----------|
- `*` | empty string |
- `\'` | empty string |
-`` ` `` | empty string |
-`"` | empty string |
- `?` | empty string |
-`;` | `-`|
-`|` | `-` |
-`\\` | `-` |
-`{` | `(`|
-`}` | `)` |
-`[` | `(`|
-`]` | `)` |
+| Special character | Replacement character |
+|-------------------|-----------------------|
+| `*`               | `%2a`                 |
+| `\'`              | `%27`                 |
+| `` ` ``           | `%60`                 |
+| `"`               | `%22`                 |
+| `?`               | `%3f`                 |
+| `;`               | `%3b`                 |
+| `|`               | `%7c`                 |
+| `\\`              | `%5c`                 |
+| `{`               | `%7b`                 |
+| `}`               | `%7d`                 |
+| `[`               | `%5b`                 |
+| `]`               | `%5d`                 |
+
+For more information, see also the Data selection and Data source discovery topics.
 
 ## Culture support
 
