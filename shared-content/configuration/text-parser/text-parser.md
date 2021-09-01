@@ -45,7 +45,7 @@ The text parser encodes special characters used in the **StreamId** parameter st
 | `"`               | `%22`                 |
 | `?`               | `%3f`                 |
 | `;`               | `%3b`                 |
-| `|`               | `%7c`                 |
+| `\|`               | `%7c`                 |
 | `\\`              | `%5c`                 |
 | `{`               | `%7b`                 |
 | `}`               | `%7d`                 |
