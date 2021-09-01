@@ -37,7 +37,7 @@ The following data types are supported by the text parser:
 
 The text parser encodes special characters used in the **StreamId** parameter string as follows:
 
-| Special character | Replacement character |
+| Special character | Encoding |
 |-------------------|-----------------------|
 | `*`               | `%2a`                 |
 | `\'`              | `%27`                 |
