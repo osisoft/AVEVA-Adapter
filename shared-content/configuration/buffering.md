@@ -59,6 +59,7 @@ The following parameters are available for configuring buffering:
 
 <sup>1</sup> **Buffering to disk** - disk is only used if required; <br>
 
+- Data is only written to the disk buffer if queued in the memory buffer for more than 5 seconds.
 - The **MaxBufferSizeMB** is applied per configured endpoint except the health endpoint.<br>
 - An adapter creates 20 MB buffer files that are stored in **BufferLocation**.<br>
 - When **MaxBufferSizeMB** is reached, the oldest buffer file is deleted and a new buffer file is created.<br>
