@@ -4,9 +4,13 @@ uid: HistoryRecovery
 
 # History recovery
 
-History recovery for PI adapters supports the following two scenarios:
+The adapter you are using supports the following data collection modes which you configure in the **DataCollectionMode** parameter of your adapter's data source configuration:
 
-- On demand history recovery operation - start time or end time must be specified (or both). If either start or end time is not specified, the default is `utcnow`.
-- Limited automatic history recovery operation - backfills data gaps that originated from connection disruptions, data source issues, or PI adapter shutdown or both. This is limited to a maximum time-range of four days.
+- `CurrentOnly`: The adapter component operates normally. History recovery is disabled.
+- `CurrentWithBackfill` (Default): The adapter component operates normally, but disconnections are recorded based on the device status. History recovery backfills data once device status is `good`.
+- `HistoryOnly`: The adapter component does not get started. Historical data only are collected.
 
-You can set the history recovery mode in the the **DataCollectionMode** parameter of your adapter's data source configuration. For more information, see the data source configuration topic.
+History recovery for adapters supports the following two operations related to the data collection mode:
+
+- **On demand history recovery**: Recovers data from a specified start time or end time (or both). If neither start nor end time is specified, the default is `utcnow`. On demand history recovery is related to the `HistoryOnly` data collection mode.
+- **Limited automatic history recovery**: Backfills data gaps that originated from connection disruptions, data source issues, or PI adapter shutdown or both. This is limited to a maximum time-range of four days. Limited automatic history recovery is related to the `CurrentWithBackfill` data collection mode.
