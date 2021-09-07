@@ -74,6 +74,25 @@ The following parameters are available for configuring egress endpoints:
 
 **Note:** If the URL schema for the egress endpoint is HTTP, which is typical for EDS, then you do not need to specify credentials. 
 
+### Special characters encoding
+
+The adapter encodes special characters used in the data selection **StreamId** parameter string before sending it to configured endpoints. The encoded characters look as follows:
+
+| Special character | Encoded character |
+|-------------------|-----------------------|
+| `*`               | `%2a`                 |
+| `'`              | `%27`                 |
+| `` ` ``           | `%60`                 |
+| `"`               | `%22`                 |
+| `?`               | `%3f`                 |
+| `;`               | `%3b`                 |
+| `\|`               | `%7c`                 |
+| `\`              | `%5c`                 |
+| `{`               | `%7b`                 |
+| `}`               | `%7d`                 |
+| `[`               | `%5b`                 |
+| `]`               | `%5d`                 |
+
 ## Examples
 
 The following examples are valid egress configurations:
