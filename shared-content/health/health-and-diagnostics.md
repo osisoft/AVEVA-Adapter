@@ -8,6 +8,7 @@ PI Adapters produce various types of health data. You can use health data to ens
 
 PI Adapters also produce diagnostic data. You can use diagnostic data to find more information about a particular adapter instance. Diagnostic data lives alongside the health data and you can egress it using a health endpoint and setting `EnableDiagnostics` to`true`. You can configure `EnableDiagnostics` in the system's [General configuration](xref:GeneralConfiguration). For more information on available diagnostics data, see [Adapter diagnostics](xref:AdapterDiagnostics).
 
+Both health and diagnostics data is created as assets in OCS. The data are available in the Asset Explorer and you can use them in the OCS Trend feature. For more information, see the OCS documentation [Assets](https://docs.osisoft.com/bundle/ocs/page/add-organize-data/organize-data/assets/asset-concept.html).
 
 ## Health endpoint differences
 
