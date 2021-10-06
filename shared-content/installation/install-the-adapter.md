@@ -40,11 +40,11 @@ Complete the following steps to install a PI adapter on a Linux computer:
 
 3. Run the `sudo apt update` command to update available packages information.
 
-5. Run the `sudo apt install` command.
+4. Run the `sudo apt install` command.
 
     **Examples**: <br> To install the Linux ARM Debian package, run the command <br>`sudo apt install ./{AdapterName}_linux-arm.deb` <br> To install the Linux x64 package, run the command <br> `sudo apt install ./{AdapterName}_linux-x64.deb`
 
-4. Optional: To verify the installation, run the following `curl` command with the port number that you specified during installation:
+5. Optional: To verify the installation, run the following `curl` command with the port number that you specified during installation:
 
    ```bash
    curl http://localhost:5590/api/v1/configuration
