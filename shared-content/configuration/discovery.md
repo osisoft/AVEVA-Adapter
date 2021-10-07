@@ -4,14 +4,14 @@ uid: DiscoveryConfiguration
 
 # Discovery
 
-You can perform a data discovery for existing data pieces on demand. Data discovery is initiated through REST calls and it is tied to a specific discovery Id, which you can either specify or let the adapter generate it.
+You can perform a data discovery for existing data items on demand. Data discovery is initiated through REST calls and it is tied to a specific discovery Id, which you can either specify or let the adapter generate it.
 
 Data discovery includes different routes. For example, you can choose to do the following:
 
 - Retrieve the discovery results
 - Query the discovery status
 - Cancel or delete discoveries
-- Merge discovery results with the data selection item
+- Merge discovery results with the data selection configuration
 - Retrieve results from a current discovery and compare it with results from a previous or discovery
 - Retrieve results from a current discovery and compare it with results from a current data selection configuration
 
@@ -40,15 +40,12 @@ Parameter | Type| Description
  **startTime** | `datetime` | Time when the discovery started
  **endTime** | `datetime`| Time when the discovery ended
  **progress** | `double` | Progress of the discovery
- **itemsFound** | `integer` | Number of data pieces that the discovery found on the data source
- **newItems** | `integer` | Number of new data pieces that the discovery found in comparison to the previous discovery
- **newAssets** | `integer` | Number of new assets that the discovery found in comparison to the previous discovery
+ **itemsFound** | `integer` | Number of data items that the discovery found on the data source
+ **newItems** | `integer` | Number of new data items that the discovery found in comparison to the previous discovery
  **resultUri** | `integer` | URL at which you can access the results of the discovery
- **autoSelect** | `boolean` | When set to `true`, the result of the discovery gets pushed to the data selection.
+ **autoSelect** | `boolean` | When set to `true`, the result of the discovery gets pushed to the data selection configuration.
  **status** | `reference` | Status of the discovery, for example `Active` or `Complete`
  **errors** | `string`| Errors encountered during the discovery
-
-**Note:** If, during data source discovery, the PI adapter encounters characters that are used in the stream Id but that are not allowed in PI tag names, the adapter replaces the characters with a unicode escape sequence in the auto-generated `<componentId>_DataSelection.json` file.
 
 ## Discoveries status example
 
@@ -64,7 +61,6 @@ The following example shows the status of all discoveries. The discovery id in t
         "progress": 30,
         "itemsFound": 4,
         "newItems": 0,
-        "newAssets": 0,
         "resultUri": "http://127.0.0.1:5590/api/v1/Configuration/<ComponentId>/Discoveries/8ff855f1-a636-490a-bb31-207410a6e607/result",
         "autoSelect": false,
         "status": "Complete",
