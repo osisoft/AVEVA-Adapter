@@ -9,7 +9,7 @@ The PI adapter supports performing history recovery on-demand by specifying star
 ## Configure history recovery
 
 1. Start any of the [Configuration tools](xref:ConfigurationTools) capable of making HTTP requests.
-2. Run a `POST` command with the `Id` of the history recovery, and the `startTime` and `endTime` to the following endpoint: `http://localhost:5590/api/v1/configuration/<ComponentId>/HistoryRecoveries`.
+2. Run a `PUT` command with the `Id` of the history recovery, and the `startTime` and `endTime` to the following endpoint: `http://localhost:5590/api/v1/configuration/<ComponentId>/HistoryRecoveries`.
 
     Example using `curl`:
 
