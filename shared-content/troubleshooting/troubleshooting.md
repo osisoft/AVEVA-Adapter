@@ -28,16 +28,12 @@ Perform the following steps to view the System and OmfEgress logs:
 
 2. Optional: Change the log level of the adapter to receive more information and context. For more information, see [Logging configuration](xref:LoggingConfiguration).
 
-### ASP .NET Core platform
+### ASP .NET Core platform log
 
-The ASP .NET Core platform log provides information from the Kestrel web server that hosts the application. The log will only be present in case EDS encounters heartbeat failures or if the adapter throughput is too high. Perform the following steps to spread the load among multiple adapters:
+The ASP .NET Core platform log provides information from the Kestrel web server that hosts the application. The log could contain information that the adapter is overloaded with incoming data. Perform the following steps to spread the load among multiple adapters:
 
 1. Decrease the scan frequency.
 2. Lower the amount of data selection items.
-
-<!--## PI Web API and OCS user documentation
-
-PI Web API and OCS user documentation provides troubleshooting information for <placeholder> -->
 
 ## Wireshark
 
