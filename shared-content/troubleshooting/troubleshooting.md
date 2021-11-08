@@ -28,6 +28,13 @@ Perform the following steps to view the System and OmfEgress logs:
 
 2. Optional: Change the log level of the adapter to receive more information and context. For more information, see [Logging configuration](xref:LoggingConfiguration).
 
+### ASP .NET Core platform log
+
+The ASP .NET Core platform log provides information from the Kestrel web server that hosts the application. The log could contain information that the adapter is overloaded with incoming data. Perform the following steps to spread the load among multiple adapters:
+
+1. Decrease the scan frequency.
+2. Lower the amount of data selection items.
+
 ## Wireshark
 
 Wireshark is a protocol-specific troubleshooting tool that supports all current adapter protocols. Perform the following steps if you want to use Wireshark to capture traffic from the data source to the adapter or from the adapter to the OMF destination.
