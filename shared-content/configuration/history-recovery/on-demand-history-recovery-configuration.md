@@ -9,12 +9,12 @@ The PI adapter supports performing history recovery on-demand by specifying star
 ## Configure history recovery
 
 1. Start any of the [Configuration tools](xref:ConfigurationTools) capable of making HTTP requests.
-2. Run a `PUT` command with the `Id` of the history recovery, and the `startTime` and `endTime` to the following endpoint: `http://localhost:5590/api/v1/configuration/<ComponentId>/HistoryRecoveries`.
+2. Run a `POST` command with the `Id` of the history recovery, and the `startTime` and `endTime` to the following endpoint: `http://localhost:5590/api/v1/configuration/<ComponentId>/HistoryRecoveries`.
 
     Example using `curl`:
 
     ```bash
-    curl -d "{ \"Id\":\"TestRecovery\", \"startTime\":\"2021-03-29T14:00:30Z\", \"endTime\":\"2021-03-29T15:00:15Z\"  }" -X PUT "http://localhost:5590/api/v1/configuration/<ComponentId>/HistoryRecoveries"
+    curl -d "{ \"Id\":\"TestRecovery\", \"startTime\":\"2021-03-29T14:00:30Z\", \"endTime\":\"2021-03-29T15:00:15Z\"  }" -X POST "http://localhost:5590/api/v1/configuration/<ComponentId>/HistoryRecoveries"
     ```
 
     **Note:**
@@ -26,7 +26,7 @@ The PI adapter supports performing history recovery on-demand by specifying star
 
 Parameter | Type| Description
 ---------|----------|---------
- **Id** | `string` | The Id of the history recovery<br><br> **Note:** You cannot run multiple discoveries with the same Id.
+ **Id** | `string` | The Id of the history recovery<br><br> **Note:** You cannot run multiple history recoveries with the same Id.
  **StartTime** | `datetime` | Time when the the first data items are collected.
  **EndTime** | `datetime`| Time when the last data items are collected.
 | **Checkpoint** | `double` | The latest timestamp that the history recovery has completed with the range being between **startTime** and **endTime**.

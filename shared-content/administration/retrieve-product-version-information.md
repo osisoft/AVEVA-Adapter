@@ -18,7 +18,7 @@ Complete the following steps to retrieve the product version information of a PI
    **Get product information for adapter hosted on port 5590**
 
    ```bash
-   curl -X GET "http://localhost:5590/api/v1/Diagnostics/ProductInformation
+   curl -X GET "http://localhost:5590/api/v1/Diagnostics/ProductInformation"
    ```
 
    Example result:
