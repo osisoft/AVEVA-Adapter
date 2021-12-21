@@ -4,11 +4,11 @@ uid: SchedulesConfiguration
 
 # Schedules
 
-You can configure PI adapters to run scans based on a schedule. If the adapter supports schedules, each data item in the data selection configuration can be assigned a schedule. The adapter will then sample data for those data items at the scheduled time.
+You can configure the adapter to run scans based on a schedule. Each data item can be assigned to a schedule in the data selection configuration. The adapter samples data for those data items at the scheduled time.
 
-**Note:** If the adapter supports scheduling and you start an ingress component without a schedules configuration, a default schedules configuration will be added to be used as an example.
+**Note:** You start an ingress component without a schedule configuration, a default schedule configuration is added to use as an example.
 
-**Note:** When the adapter framework scheduler misses or skips a scan due to any reason, either one of the following messages is printed: `Scan skipped for schedule id <Id>` or `Scan missed for schedule <id>`.
+**Note:** When the adapter framework scheduler misses or skips a scan for any reason, either one of the following messages is printed: `Scan skipped for schedule id <Id>` or `Scan missed for schedule <id>`.
 
 ## Configure schedules
 
@@ -51,12 +51,14 @@ The following parameters are available for configuring schedules:
 | Parameter                | Required | Type      | Description |
 | ------------------------ | -------- | --------- | ----------- |
 |**Id**              | Required | `string` | Unique identifier for the schedule<br><br>Allowed value: any string identifier |
-|**Period** | Required | `string` | The data sampling rate of the schedule. The expected format is HH:MM:SS.###. * <br><br>Invalid input: `null`, negative timespan, zero <br> Default value: `null` (must be specified)|
-|**Offset**     | Optional | `string` | The offset from the midnight when the schedule starts. The expected format is HH:MM:SS.### * <br><br>Invalid input: negative timespan<br>Default value: `null`|
+|**Period** | Required | `string` | The data sampling rate of the schedule. The expected format is HH:MM:SS.###. <br><br>Invalid input: `null`, negative timespan, zero <br> Default value: `null` (must be specified)|
+|**Offset**     | Optional | `string` | The offset from the midnight when the schedule starts. The expected format is HH:MM:SS.### <br><br>Invalid input: negative timespan<br>Default value: `null`|
 
-**\* Note:** You can also specify timespans as numbers in seconds. For example, `"Period": 25` specifies 25 seconds, or `"Period": 125` specifies 2 minutes and 5 seconds.
+**Note:** You can also specify timespans as numbers in seconds. For example, `"Period": 25` specifies 25 seconds, or `"Period": 125` specifies 2 minutes and 5 seconds.
 
-## Example
+## Example schedule configuration
+
+The following is an example of a complete schedule configuration:
 
 ```code
 [
@@ -64,6 +66,20 @@ The following parameters are available for configuring schedules:
     "Id": "schedule1",
     "Period": "00:00:01.500",
     "Offset": "00:02:03"
+  }
+]
+```
+
+## Default schedule configuration
+
+If no schedule is configured, the adapter uses the following default schedule configuration:
+
+```code
+[
+  {
+    "Id": "1",
+    "Period": "0:00:05",
+    "Offset": "0:00:00"
   }
 ]
 ```
