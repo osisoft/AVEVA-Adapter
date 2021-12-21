@@ -74,19 +74,19 @@ The following parameters are available for configuring egress endpoints:
 The adapter encodes special characters used in the data selection **StreamId** parameter string before sending it to configured endpoints. The encoded characters look as follows:
 
 | Special character | Encoded character |
-|-------------------|-----------------------|
-| `*`               | `%2a`                 |
-| `'`              | `%27`                 |
-| `` ` ``           | `%60`                 |
-| `"`               | `%22`                 |
-| `?`               | `%3f`                 |
-| `;`               | `%3b`                 |
-| `\|`               | `%7c`                 |
-| `\`              | `%5c`                 |
-| `{`               | `%7b`                 |
-| `}`               | `%7d`                 |
-| `[`               | `%5b`                 |
-| `]`               | `%5d`                 |
+|-------------------|-------------------|
+| &#42;             | `%2a`             |
+| &#39;             | `%27`             |
+| &#96;             | `%60`             |
+| &#34;             | `%22`             |
+| &#63;             | `%3f`             |
+| &#59;             | `%3b`             |
+| &#124;            | `%7c`             |
+| &#92;             | `%5c`             |
+| &#123;            | `%7b`             |
+| &#125;            | `%7d`             |
+| &#91;             | `%5b`             |
+| &#93;             | `%5d`             |
 
 ## Examples
 
