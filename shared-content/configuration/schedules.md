@@ -15,7 +15,7 @@ You can configure the adapter to run scans based on a schedule. Each data item c
 Complete the following steps to change the schedules configuration:
 
 1. Using any text editor, create a file that contains the schedules configuration in the JSON format.
-    - For content structure, see [Example](#example).
+    - For content structure, see [Example](#example-schedule-configuration).
     - For all available parameters, see [Schedules parameters](#schedules-parameters).
 
 2. Save the file. For example, `ConfigureSchedules.json`.
