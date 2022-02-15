@@ -16,7 +16,7 @@ To prepare OCS to receive OMF messages from the adapter, create an OMF connectio
 
 2. Create an **OMF** type **Connection**.
 
-   The connection should link the created client to an existing [namespace](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Management/Account_Namespace_1.html) where the data will be stored.
+   The connection should link the created client to an existing [namespace](https://docs.osisoft.com/bundle/ocs/page/set-up/namespaces/namespaces-concept.html) where the data will be stored.
    The **OMF Endpoint** URL for the connection will be used as the egress configuration *Endpoint* property.
 
 ## PI Server
@@ -28,7 +28,7 @@ To prepare a PI Server to receive OMF messages from the adapter, a PI Web API OM
     - The account used in an egress configuration needs permissions to create AF elements, element templates, and PI points.
 2. Configure PI Web API to use *Basic* authentication.
 
- For complete steps, as well as best practices and recommendations, see the [PI Web API User Guide](https://livelibrary.osisoft.com/LiveLibrary/content/en/web-api-v12/GUID-D807EF71-7F37-43DB-A357-EF03CCD001F1) on Live Library.
+ For complete steps, as well as best practices and recommendations, see the [PI Web API User Guide](https://docs.osisoft.com/bundle/pi-web-api/page/pi-web-api.html).
 
 **Note:**  The certificate used by PI Web API must be trusted by the device running the adapter, otherwise the egress configuration *ValidateEndpointCertificate* property needs to be set to false (this can be the case with a **self-signed certificate** but should only be used for testing purposes).
 
