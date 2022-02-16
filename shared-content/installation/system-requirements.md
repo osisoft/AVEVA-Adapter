@@ -12,4 +12,4 @@ uid: SystemRequirements
 | Debian 9, 10<br>Ubuntu 18.04, 20.04 | x64 | [!include[installer](../_includes/inline/installer-name.md)]-x64_.deb     | Intel/AMD 64-bit processors |
 | Debian 9, 10<br>Ubuntu 20.04 | ARM32 | [!include[installer](../_includes/inline/installer-name.md)]-arm_.deb  | ARM 32-bit processors |
 
-Alternatively, you can use tar.gz files with binaries to build your own custom installers or containers for Linux. For more information on installing PI Adapter for Azure Event Hubs with Docker containers, see [Install PI Adapter for Azure Event Hubs using Docker](xref:InstallPIAdapterForAzureEventHubsUsingDocker).
+Alternatively, you can use tar.gz files with binaries to build your own custom installers or containers for Linux. For more information on installing the adapter with Docker containers, see <xref:InstallUsingDocker>.

@@ -1,2 +1,2 @@
-<!-- Component Type e.g. "BACnet" -->
 <Componenent Type>
+<!-- Component Type e.g. "BACnet" -->
