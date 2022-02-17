@@ -46,7 +46,7 @@ Complete the following steps to upgrade a PI adapter on a Linux computer:
 
 3. Move the Linux distribution file to the target host and run the `sudo apt upgrade` command.
 
-    Platform | Installer
+    Platform | Command
     --|--
     **Linux x64** |<code>sudo apt upgrade ./[!include[installer](../_includes/inline/installer-name.md)]-x64_.deb</code> 
     **Linux ARM32 Debian** |<code>sudo apt upgrade ./[!include[installer](../_includes/inline/installer-name.md)]-arm_.deb</code> 
