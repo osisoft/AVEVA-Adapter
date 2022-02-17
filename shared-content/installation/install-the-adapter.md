@@ -40,7 +40,7 @@ Complete the following steps to install an adapter on a Linux computer:
 
 3. Run the `sudo apt update` command to update available packages information.
 
-4. Run the `sudo apt install` command against the Linux distribution file (<code>[!include[installer](../_includes/inline/installer-name.md)]-{ARC}_.deb</code>) selected in step 1 of this procedure.
+4. Run the `sudo apt install` command against the Linux distribution file (<code>[!include[installer](../_includes/inline/installer-name.md)]-{PLATFORM}_.deb</code>) selected in step 1 of this procedure.
 
     For example: <code>sudo apt install ./[!include[installer](../_includes/inline/installer-name.md)]-x64_.deb</code>
 
