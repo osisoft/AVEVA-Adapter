@@ -32,7 +32,7 @@ Complete the following steps to install a PI adapter on a Windows computer:
 
 Complete the following steps to install an adapter on a Linux computer:
 
-1. Download the appropriate Linux distribution file (<code>[!include[installer](../_includes/inline/installer-name.md)]-{ARC}_.deb</code>) from the [OSIsoft Customer portal (https://customers.osisoft.com/s/products)](https://customers.osisoft.com/s/products).
+1. Download the appropriate Linux distribution file (<code>[!include[installer](../_includes/inline/installer-name.md)]-{PLATFORM}_.deb</code>) from the [OSIsoft Customer portal (https://customers.osisoft.com/s/products)](https://customers.osisoft.com/s/products).
 
     **Note:** Customer login credentials are required to access the portal.
 
