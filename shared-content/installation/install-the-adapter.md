@@ -42,7 +42,7 @@ Complete the following steps to install an adapter on a Linux computer:
 
 4. Run the `sudo apt install` command against the Linux distribution file (<code>[!include[installer](../_includes/inline/installer-name.md)]-{ARC}_.deb</code>) selected in step 1 of this procedure.
 
-    For example: <code>sudo apt install [!include[installer](../_includes/inline/installer-name.md)]-x64_.deb</code>
+    For example: <code>sudo apt install ./[!include[installer](../_includes/inline/installer-name.md)]-x64_.deb</code>
 
 5. Optional: To verify the installation, run the following `curl` command with the port number that you specified during installation:
 
