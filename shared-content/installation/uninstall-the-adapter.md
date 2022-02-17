@@ -13,10 +13,8 @@ Complete the procedure corresponding to your specific operating system to uninst
     **Note:** The configuration, data, and log files are not deleted by the uninstall process.
 
 2. Optional: To delete data, configuration, and log files, delete the directory:
-   
-   <!-- PRERELEASE REMINDER: Customize for {adapter-name}. Example:BACnet, EventHubs, StructuredDataFiles, etc -->
 
-   _%ProgramData%\OSIsoft\Adapters\{adapter-name}_
+   _%ProgramData%\OSIsoft\Adapters\ [!include[product-name](../_includes/inline/product-name.md)] _
    
    This deletes all data processed by the adapter, in addition to the configuration and log files.
 
