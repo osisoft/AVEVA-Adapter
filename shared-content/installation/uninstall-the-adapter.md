@@ -12,26 +12,30 @@ Complete the procedure corresponding to your specific operating system to uninst
 
     **Note:** The configuration, data, and log files are not deleted by the uninstall process.
 
-2. Optional: To delete data, configuration, and log files, delete the directory <!-- Customize for adapter -->_%ProgramData%\OSIsoft\Adapters\AdapterName_.
+2. Optional: To delete data, configuration, and log files, delete the directory:
+   
+   <!-- PRERELEASE REMINDER: Customize for {adapter-name}. Example:BACnet, EventHubs, StructuredDataFiles, etc -->
 
-    This deletes all data processed by the adapter, in addition to the configuration and log files.
+   _%ProgramData%\OSIsoft\Adapters\{adapter-name}_
+   
+   This deletes all data processed by the adapter, in addition to the configuration and log files.
 
 ## Linux
 
 1. To delete PI Adapter software from a Linux device, open a terminal window and run the following command:
 
-    <!-- Customize for adapter -->
+    <!-- PRERELEASE REMINDER: Customize for {adapter-name}. Example:BACnet, EventHubs, StructuredDataFiles, etc -->
 
     ```bash
-    sudo apt remove pi.adapter.<AdapterName> 
+    sudo apt remove pi.adapter.{adapter-name} 
     ```
 
 2. Optional: To delete data, configuration, and log files, run the following command:
 
-    <!-- Customize for adapter -->
+    <!-- PRERELEASE REMINDER: Customize for {adapter-name}. Example:BACnet, EventHubs, StructuredDataFiles, etc -->
 
     ```bash
-    sudo rm -r /usr/share/OSIsoft/Adapters/<AdapterName>
+    sudo rm -r /usr/share/OSIsoft/Adapters/{adapter-name}
     ```
     
     This deletes all data processed by the adapter, in addition to the configuration and log files.
