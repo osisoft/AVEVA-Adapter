@@ -6,7 +6,7 @@ uid: InstallUsingDocker
 
 Docker is a set of tools that you can use on Linux to manage application deployments. This topic provides examples of how to create a Docker container with the adapter.
 
-**Note:** Installation using Docker in only recommended for users proficent with Docker. Docker is not required to use the adapter.
+**Note:** Installation using Docker in only recommended for users proficient with Docker. Docker is not required to use the adapter.
 
 ## Create a startup script
 
