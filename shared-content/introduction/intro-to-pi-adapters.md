@@ -14,7 +14,7 @@ uid: IntroToPiAdapters
 
 The following diagram depicts the collection and processing of data for an operational [!include[product-name](../_includes/inline/product-name.md)], collecting and processing data. Refer to the list below the diagram for more information on each callout.
 
-<!-- Mark Bishop 6/22/21: The SVG file referenced below can be opened and edited using https://app.diagrams.net/ -->
+<!-- Mark Bishop 3/3/22: The SVG file referenced below can be opened and edited using https://app.diagrams.net/ -->
 
 ![Adapter Data Flow](../images/adapter-data-flow.svg)
 
