@@ -23,6 +23,6 @@ The following diagram depicts the process of the [!include[product-name](../_inc
 
 <!-- Mark Bishop 6/22/21: The SVG file referenced below can be opened and edited using https://app.diagrams.net/ -->
 
-![Adapter Diagram](../images/adapter-system-diagram.svg )
+![Adapter Data Flow](../images/adapter-data-flow.svg)
 
 The [!include[product-name](../_includes/inline/product-name.md)] is installed on a host system. You can configure the PI Adapter and other system components using either a **REST** interface or **EdgeCmd**, a command line utility specifically designed for interfacing with edge systems.
