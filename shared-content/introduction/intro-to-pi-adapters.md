@@ -25,4 +25,4 @@ The following diagram depicts the process of the [!include[product-name](../_inc
 
 ![Adapter Data Flow](../images/adapter-data-flow.svg)
 
-The [!include[product-name](../_includes/inline/product-name.md)] is installed on a host system. You can configure the PI Adapter and other system components using either a **REST** interface or **EdgeCmd**, a command line utility specifically designed for interfacing with edge systems.
+The [!include[product-name](../_includes/inline/product-name.md)] is installed on a host system. You can configure the PI Adapter and other system components using either a REST interface or EdgeCmd, a command line utility specifically designed for interfacing with edge systems.
