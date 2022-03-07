@@ -6,8 +6,6 @@ uid: IntroToPiAdapters
 
 [!include[product-name](../_includes/inline/product-name.md)] is an OSIsoft data collection technology that collects operations data from a [!include[product-protocol](../_includes/inline/product-protocol.md)] data source and then sends it to a supported storage location in the Open Message Format (OMF).
 
-## About [!include[product-protocol](../_includes/inline/product-protocol.md)]
-
 <!-- Add content about the protocol here -->
 
 ## [!include[product-name](../_includes/inline/product-name.md)] data flow
@@ -18,9 +16,9 @@ The following diagram depicts the collection and processing of data for an opera
 
 ![Adapter Data Flow](../images/adapter-data-flow.svg)
 
-1. The user installs and configures [!include[product-name](../_includes/inline/product-name.md)] a host system. You can configure the adapter using either a REST interface or EdgeCmd, a command line utility specifically designed for interfacing with edge systems.
+1. The user installs and configures [!include[product-name](../_includes/inline/product-name.md)] on a host system. You can configure the adapter using either a REST interface or EdgeCmd, a command line utility specifically designed for interfacing with edge systems.
    
-1. The adapter collects data from assets in remote locations over the [!include[product-protocol](../_includes/inline/product-protocol.md)] protocol, a process known as *data ingress*.
+1. The adapter collects data from assets over the [!include[product-protocol](../_includes/inline/product-protocol.md)] protocol, a process known as *data ingress*.
 
 1. The adapter converts ingress data to the Open Message Format (OMF), a format that supported storage locations understand.
 
