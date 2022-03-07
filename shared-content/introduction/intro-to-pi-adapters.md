@@ -2,7 +2,7 @@
 uid: IntroToPiAdapters
 ---
 
-# [!include[product-name](../_includes/inline/product-name.md)]
+# [!include[product-name](../_includes/inline/product-name.md)] [!include[product-version](../_includes/inline/product-version.md)]
 
 [!include[product-name](../_includes/inline/product-name.md)] is an OSIsoft data collection technology that collects operations data from a [!include[product-protocol](../_includes/inline/product-protocol.md)] data source and then sends it to a supported storage location in the Open Message Format (OMF).
 
