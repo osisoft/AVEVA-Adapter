@@ -14,7 +14,7 @@ The following diagram depicts the collection and processing of data for an opera
 
 <!-- Mark Bishop 3/3/22: The SVG file referenced below can be opened and edited using https://app.diagrams.net/ -->
 
-![Adapter Data Flow](../images/adapter-data-flow.svg)
+![Adapter Data Flow](../images/adapter-data-flow.drawio.svg)
 
 1. The user installs and configures [!include[product-name](../_includes/inline/product-name.md)] on a host system. You can configure the adapter using either a REST interface or EdgeCmd, a command line utility specifically designed for interfacing with edge systems.
    
