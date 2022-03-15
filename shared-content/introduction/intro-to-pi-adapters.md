@@ -4,13 +4,13 @@ uid: IntroToPiAdapters
 
 # [!include[product-name](../_includes/inline/product-name.md)] [!include[product-version](../_includes/inline/product-version.md)]
 
-[!include[product-name](../_includes/inline/product-name.md)] is an OSIsoft data collection technology that collects operations data from a [!include[product-protocol](../_includes/inline/product-protocol.md)] data source and then sends it to a supported storage location in the Open Message Format (OMF).
+[!include[product-name](../_includes/inline/product-name.md)] is a  data collection technology that collects operations data from a data source over the [!include[product-protocol](../_includes/inline/product-protocol.md)] protocol and then sends it to a supported storage location in the Open Message Format (OMF).
 
 <!-- Add content about the protocol here -->
 
 ## [!include[product-name](../_includes/inline/product-name.md)] data flow
 
-The following diagram depicts the collection and processing of data for an operational [!include[product-name](../_includes/inline/product-name.md)], collecting and processing data. Refer to the list below the diagram for more information on each callout.
+The following diagram depicts the collection and processing of data for an operational [!include[product-name](../_includes/inline/product-name.md)], collecting and processing data. Refer to the list below the diagram for more information on each callout depicted.
 
 <!-- Mark Bishop 3/3/22: The SVG file referenced below can be opened and edited using https://app.diagrams.net/ -->
 
