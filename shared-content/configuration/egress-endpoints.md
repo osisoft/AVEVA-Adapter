@@ -136,9 +136,13 @@ The following examples are valid egress configurations:
 - Type, container, and data items are batched into one or more OMF messages when egressing. As per the requirements defined in OMF, a single message payload will not exceed 192KB in size. Compression is automatically applied to outbound egress messages. On the egress destination, failure to add a single item results in the message failing. Types, containers, and data are egressed as long as the destination continues to respond to HTTP requests.
 
 ## Egress debug logging
-Use debugging information to probleshoot probles between PI Adapter and the egress destination. To anable debugging follow these steps:
+Use debugging information to probleshoot probles between PI Adapter and the egress destination. To enable debugging follow these steps:
 1. Set appropriate time value for the DebugExpiration property in the egress configuration
     Note: Disable debugging by settings the DebugExpiration property to `null`.
+2. Navigate to the folder mentioned below to review the logs.
+
+Note: We do recomend enabling the egress debugging feature for limited time only to avoid running out of disk space.
+
 Date and time strings should use the following formats:
 ```
 - UTC: "yyyy-mm-ddThh:mm:ssZ"
