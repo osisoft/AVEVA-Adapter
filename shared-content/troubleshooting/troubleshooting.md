@@ -110,7 +110,7 @@ Local: `mm-dd-yyyy hh:mm:ss`
 
 Because the overall number and size of each request or response pair captured by debugging can be quite large, the debugging information is stored in a separate folder. Debugging folders and files are created in the logs folder as follows:
 
-Windows: `%programdata%\OSIsoft\Adapters\{adapterType}\Logs\EgressDebugLogs\{endpointType}\{omfType}\{Ticks}-{Guid}-{Req/Res}.txt`
+Windows: `%programdata%\OSIsoft\Adapters\{adapterType}\Logs\EgressDebugLogs\{endpointType}\{egressId}\{omfType}\{Ticks}-{Guid}-{Req/Res}.txt`
 
 Linux: `/usr/share/OSIsoft/Adapters/{adapterType}/Logs/EgressDebugLogs/{endpointType}/{egressId}/{omfType}/{Ticks}-{Guid}-{Req/Res}.txt`
 
@@ -120,6 +120,7 @@ The specific elements of the file structure are defined in the following table.
 |------------|----------------------------------|
 | *adapterType* | The type of the adapter: OpcUa, Modbus, MQTT, and so on. |
 | *endpointType* | The type of egress endpoint: Data or Health. |
+| *egressId* | The Id of egress endpoint specified in configuration. |
 | *omfType*  | The OMF message type: Type, Container, or Data. |
 | *Ticks*    | The time in milliseconds (tick count) for UTC DateTime when the determined message was written to disk. |
 | *Guid*     | The unique GUID for each request or response pair. |
