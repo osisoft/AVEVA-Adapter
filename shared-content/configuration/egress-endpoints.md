@@ -136,7 +136,7 @@ The following examples are valid egress configurations:
 - Type, container, and data items are batched into one or more OMF messages when egressing. As per the requirements defined in OMF, a single message payload will not exceed 192KB in size. Compression is automatically applied to outbound egress messages. On the egress destination, failure to add a single item results in the message failing. Types, containers, and data are egressed as long as the destination continues to respond to HTTP requests.
 
 ## Egress debug logging
-Use debugging information to probleshoot probles between PI Adapter and the egress destination. To enable debugging follow these steps:
+Use debugging information to probleshoot problems between PI Adapter and the egress destination. To enable debugging follow these steps:
 1. Set appropriate time value for the DebugExpiration property in the egress configuration
     Note: Disable debugging by settings the DebugExpiration property to `null`.
 2. Navigate to the folder mentioned below to review the logs.
@@ -153,7 +153,7 @@ Date and time strings should use the following formats:
 Because the overall number and size of each request/response pair captured by debugging can be quite large, debugging information is stored in a separate folder. Debug folders and files are created under Logs folder as follows:
 
 ```
-Windows: %programdata%\OSIsoft\Adapters\{adapterType}\Logs\EgressDebugLogs\{endpointType}\{omfType}\{Ticks}-{Guid}-{Req/Res}.txt
+Windows: %programdata%\OSIsoft\Adapters\{adapterType}\Logs\EgressDebugLogs\{endpointType}\{egressId}\{omfType}\{Ticks}-{Guid}-{Req/Res}.txt
 
 Linux: /usr/share/OSIsoft/Adapters/{adapterType}/Logs/EgressDebugLogs/{endpointType}/{egressId}/{omfType}/{Ticks}-{Guid}-{Req/Res}.txt
 ```
@@ -164,6 +164,7 @@ The specific elements of the file structure are defined in the following table.
 |------------|----------------------------------|
 | *adapterType*  | The type of the adapter: OpcUa, Modbus, MQTT, etc.    |
 | *endpointType*  | The type of egress endpoint: Data or Health.    |
+| *egressId*  | The Id of egress endpoint specified in configuration.    |
 | *omfType*  | The OMF message type: Type, Container, or Data.    |
 | *Ticks*    | The time in milliseconds (tick count) for UTC DateTime when determined message would be written to disk.  |
 | *Guid*     | The unique GUID for each request/response pair.     |
