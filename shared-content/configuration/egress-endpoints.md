@@ -66,6 +66,7 @@ The following parameters are available for configuring egress endpoints:
 | **Password**                    | Required for PI server endpoint  | `string`    | Basic authentication to the PI Web API OMF endpoint <br><br>_PI server:_<br>Allowed value: any string<br>Default: `null`  |
 | **ClientId**                    | Required for OCS endpoint | `string`    | Authentication with the OCS OMF endpoint <br><br>Allowed value: any string, can be null if the endpoint URL schema is `HTTP`<br>Default: `null`|
 | **ClientSecret**                | Required for OCS endpoint | `string`    | Authentication with the OCS OMF endpoint <br><br>Allowed value: any string, can be null if the endpoint URL schema is `HTTP`<br>Default: `null`|
+| **DebugExpiration**             | Optional                  | string    | Enables logging of detailed information, for each outbound HTTP request pertaining to this egress endpoint, to disk. The value represents the date and time this detailed information should stop being saved. Examples of valid strings representing date and time:  UTC: "yyyy-mm-ddThh:mm:ssZ", Local: "mm-dd-yyyy hh:mm:ss". For more information, see {link to troubleshooting section} |
 | **TokenEndpoint**               | Optional for OCS endpoint | `string`    | Retrieves an OCS token from an alternative endpoint <br><br>Allowed value: well-formed http or https endpoint string <br>Default value: `null` |
 | **ValidateEndpointCertificate** | Optional                  | `boolean`   | Disables verification of destination certificate. **Note:** Only use for testing with self-signed certificates. <br><br>Allowed value: `true` or `false`<br>Default value: `true` |
 
@@ -133,3 +134,33 @@ The following examples are valid egress configurations:
 - After configuring an egress endpoint, egress is immediately run for that endpoint. Egress is handled individually per configured endpoint. When data is egressed for the first time, types and containers are egressed to the configured endpoint. After that only new or changed types or containers are egressed. Type creation must be successful in order to create containers. Container creation must be successful in order to egress data.
 - If you delete an egress endpoint, data flow immediately stops for that endpoint. Buffered data in a deleted endpoint is permanently lost.
 - Type, container, and data items are batched into one or more OMF messages when egressing. As per the requirements defined in OMF, a single message payload will not exceed 192KB in size. Compression is automatically applied to outbound egress messages. On the egress destination, failure to add a single item results in the message failing. Types, containers, and data are egressed as long as the destination continues to respond to HTTP requests.
+
+## Egress debug logging
+Use debugging information to probleshoot probles between PI Adapter and the egress destination. To anable debugging follow these steps:
+1. Set appropriate time value for the DebugExpiration property in the egress configuration
+    Note: Disable debugging by settings the DebugExpiration property to `null`.
+Date and time strings should use the following formats:
+```
+- UTC: "yyyy-mm-ddThh:mm:ssZ"
+
+- Local: "mm-dd-yyyy hh:mm:ss"
+```
+### Debugging folder/file structure
+Because the overall number and size of each request/response pair captured by debugging can be quite large, debugging information is stored in a separate folder. Debug folders and files are created under Logs folder as follows:
+
+```
+Windows: %programdata%\OSIsoft\Adapters\{adapterType}\Logs\EgressDebugLogs\{endpointType}\{omfType}\{Ticks}-{Guid}-{Req/Res}.txt
+
+Linux: /usr/share/OSIsoft/Adapters/{adapterType}/Logs/EgressDebugLogs/{endpointType}/{egressId}/{omfType}/{Ticks}-{Guid}-{Req/Res}.txt
+```
+
+The specific elements of the file structure are defined in the following table.
+
+| Element    | Represents                       |
+|------------|----------------------------------|
+| *adapterType*  | The type of the adapter: OpcUa, Modbus, MQTT, etc.    |
+| *endpointType*  | The type of egress endpoint: Data or Health.    |
+| *omfType*  | The OMF message type: Type, Container, or Data.    |
+| *Ticks*    | The time in milliseconds (tick count) for UTC DateTime when determined message would be written to disk.  |
+| *Guid*     | The unique GUID for each request/response pair.     |
+| *Req/Res*  | Whether the message was HTTP request or response.   |
