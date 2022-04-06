@@ -98,7 +98,7 @@ Perform the following steps to enable debugging and to troubleshoot issues betwe
    **Note:** To disable debugging, set the **DebugExpiration** property to `null`.
 2. Navigate to the debugging folder to review the logs.
 
-**Note:** We do recommend enabling the egress debugging feature for a limited time to avoid running out of disk space.
+**Note:** We recommend enabling the egress debugging feature for a limited time to avoid running out of disk space.
 
 Date and time strings should use the following formats:
 
