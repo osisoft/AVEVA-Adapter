@@ -9,5 +9,5 @@ The `Diagnostics.Failover.FailoverStatus` dynamic type includes the following va
 | Property  | Type   | Description                                            |
 | --------- | ------ | -------------------------------------------------------|
 | **timestamp** | `string` | Timestamp of event                                    |
-| **FailoverStatus**  | `float` | . Value between 0 and 100 indicating the adapter's overall connectivity to each data source. 100 is 'Good' and all data source connections were successful. 0 is 'Bad' and no data is being collected.|
+| **FailoverStatus**  | `float` | Value between 0 and 100 indicating the adapter's overall connectivity to each data source. 100 is 'Good' and all data source connections were successful. 0 is 'Bad' and no data is being collected.|
 | **FailoverRole**  | `string` | Current role of the failover instance. When the adapter assumes `Primary` role it is egressing data. In the `Secondary` role, the adapter will not be egressing data to the failover endpoint, but may retain a cacha of data if the failover mode is `Hot`.|
