@@ -95,6 +95,9 @@ The following is an example of failover state returned from the adapter:
     "AdapterState": "Running"
 }
 ```
+## Health
+
+If the adapter has health endpoints configured, the client failover configuration values `Mode` and `FailoverGroupId` will be included in the static failover health data.
 
 ## REST URLs
 
