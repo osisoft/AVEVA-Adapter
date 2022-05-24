@@ -60,21 +60,19 @@ On successful execution, the client failover change takes effect immediately dur
 The following is an example of a complete client failover configuration.
 
 ```json
-[
-  {
-    "Id": "FailoverConfiguration1",
-    "FailoverGroupId": "FailoverGroup1",
-    "Name": "NameExample",
-    "Description": "DescriptionExample",
-    "FailoverTimeout": "00:01:00",
-    "Mode": "hot",
-    "Endpoint": "http://test-endpoint.com",
-    "UserName": "UserName1",
-    "Password": "Password1",
-    "TokenEndpoint": "http://token.com",
-    "ValidateEndpointCertificate": false
-  }
-]
+ {
+   "Id": "FailoverConfiguration1",
+   "FailoverGroupId": "FailoverGroup1",
+   "Name": "NameExample",
+   "Description": "DescriptionExample",
+   "FailoverTimeout": "00:01:00",
+   "Mode": "hot",
+   "Endpoint": "http://test-endpoint.com",
+   "UserName": "UserName1",
+   "Password": "Password1",
+   "TokenEndpoint": "http://token.com",
+   "ValidateEndpointCertificate": false
+ }
 ```
 
 **Note:** You can only register the adapter to a single failover endpoint by providing one client failover configuration. Additional configuration entries will be rejected.
@@ -103,12 +101,8 @@ If the adapter has health endpoints configured, the client failover configuratio
 
 | Relative URL | HTTP verb | Action |
 | ------------ | --------- | ------ |
-| api/v1/configuration/System/ClientFailover      | GET       | Gets all client failover configurations <br><br> **Note:**<br>&bull; There is always one entry in the list of returned failover configurations. |
+| api/v1/configuration/System/ClientFailover      | GET       | Gets the client failover configurations |
 | api/v1/configuration/System/ClientFailover      | DELETE    | Deletes the configured client failover
-| api/v1/configuration/System/ClientFailover      | POST      | Adds a single client failover configuration. Fails if any client failover configuration already exists |
+| api/v1/configuration/System/ClientFailover      | POST      | Adds a client failover configuration. Fails if the client failover configuration already exists |
 | api/v1/configuration/System/ClientFailover      | PUT       | Replaces the existing client failover configuration |
-| api/v1/configuration/System/ClientFailover/*id* | GET       | Gets configured client failover by *id* |
-| api/v1/configuration/System/ClientFailover/*id* | DELETE    | Deletes configured client failover by *id* |
-| api/v1/configuration/System/ClientFailover/*id* | PUT       | Replaces client failover by *id*. Fails if the failover configuration does not exist |
-| api/v1/configuration/System/ClientFailover/*id* | PATCH     | Allows partial updating of configured client failover by *id* |
-| api/v1/diagnostics/FailoverState | GET     | Get the current failover state |
+| api/v1/diagnostics/FailoverState                | GET     | Get the current failover state |
