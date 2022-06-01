@@ -36,5 +36,5 @@ To submit documentation feedback for PI Adapters, send an email to [documentatio
 - Documentation topic URL
 - Details of the suggestion or error
 
-The technical documentation team at AVEVA will review and respond to your feedback.
+The technical documentation team will review and address your feedback in future documentation updates.
 
