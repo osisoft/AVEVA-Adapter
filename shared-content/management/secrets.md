@@ -6,7 +6,6 @@ uid: Secrets
 
 PI Adapters use secrets when authenticating with sources and destinations. All secrets are encrypted and stored in the `management_secrets.json` file and are referenced by using their ID in other configurations' protected fields (e.g. "clientSecret" : "{{Secret#2}}"). 
 
-
 ## Configure secrets
 
 Complete the following steps to configure secrets. Use the `PUT` method in conjunction with the `http://localhost:5590/api/v1/Management/Secrets` REST endpoint to initialize the configuration.
@@ -42,7 +41,7 @@ On successful execution, the secrets change takes effect immediately during runt
 
 ## Secrets schema
 
-The full schema definition for the egress endpoint configuration is in the `Management_Secrets_schema.json`  file located in one of the following folders:
+The full schema definition for the egress endpoint configuration is in the `Management_Secrets_schema.json` file located in one of the following folders:
 
 Windows: `%ProgramFiles%\OSIsoft\Adapters\<AdapterName>\Schemas`
 
@@ -59,7 +58,7 @@ The following parameters are available for configuring secrets:
 | **ExpirationDate** | Optional | 'string' | Expiration date of the secret. |
 | **Value** | Required | 'string' | The secret value. |
 
-  **Notes:** The Description and ExpirationDate fields are not used in the adapter framework and are metadata. 
+  **Notes:** The **Description** and **ExpirationDate** fields are not used in the adapter and are metadata. 
 
 ## Example
 
@@ -85,7 +84,7 @@ For the purposes of readability, the secret id is abbreviated {sid}.
 | Relative URL | HTTP verb | Action |
 | ------------ | --------- | ------ |
 | api/v1/management/secrets | GET | Returns entire secrets configuration (secret values will be *s) |
-| api/v1/management/secrets | PUT | Creates or replaces entire secrests configuration |
+| api/v1/management/secrets | PUT | Creates or replaces entire secrets configuration |
 | api/v1/management/secrets | DELETE | Deletes entire secrets configuration |
 | api/v1/management/secrets/{sid} | GET | Retuns single secret if exists (secret values will be *s) |
 | api/v1/management/secrets/{sid} | PUT | Creates or repaces a single secret |
