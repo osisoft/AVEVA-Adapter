@@ -118,10 +118,10 @@ The specific elements of the file structure are defined in the following table.
 
 | Element    | Represents                       |
 |------------|----------------------------------|
-| *adapterType* | The type of the adapter: OpcUa, Modbus, MQTT, and so on. |
-| *endpointType* | The type of egress endpoint: Data or Health. |
-| *egressId* | The Id of egress endpoint specified in configuration. |
-| *omfType*  | The OMF message type: Type, Container, or Data. |
-| *Ticks*    | The time in milliseconds (tick count) for UTC DateTime when the determined message was written to disk. |
-| *Guid*     | The unique GUID for each request or response pair. |
-| *Req/Res*  | Whether the message was HTTP request or response. |
+| **adapterType** | The type of the adapter: OpcUa, Modbus, MQTT, and so on. |
+| **endpointType** | The type of egress endpoint: Data or Health. |
+| **egressId** | The Id of egress endpoint specified in configuration. |
+| **omfType**  | The OMF message type: Type, Container, or Data. |
+| **Ticks**    | The time in milliseconds (tick count) for UTC DateTime when the determined message was written to disk. |
+| **Guid**     | The unique GUID for each request or response pair. |
+| **Req/Res**  | Whether the message was HTTP request or response. |
