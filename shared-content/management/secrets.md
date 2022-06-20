@@ -59,6 +59,7 @@ The following parameters are available for configuring secrets:
 | **Value** | Required | 'string' | The secret value. |
 
   **Notes:** The **Description** and **ExpirationDate** fields are not used in the adapter and are metadata. 
+  If the **Value** is the masked value "\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*", then the **Value** will be unchanged from the previous configuration. An error will be returned if the masked value is used when no previous configuration for that **Id** exists. 
 
 ## Example
 
