@@ -84,10 +84,10 @@ For the purposes of readability, the secret id is abbreviated {sid}.
 
 | Relative URL | HTTP verb | Action |
 | ------------ | --------- | ------ |
-| api/v1/management/secrets | GET | Returns entire secrets configuration (secret values will be *s) |
+| api/v1/management/secrets | GET | Returns entire secrets configuration (secret values will be hidden by *s) |
 | api/v1/management/secrets | PUT | Creates or replaces entire secrets configuration |
 | api/v1/management/secrets | DELETE | Deletes entire secrets configuration |
-| api/v1/management/secrets/{sid} | GET | Retuns single secret if exists (secret values will be *s) |
+| api/v1/management/secrets/{sid} | GET | Retuns single secret if exists (secret values will be hidden by *s) |
 | api/v1/management/secrets/{sid} | PUT | Creates or repaces a single secret |
 | api/v1/management/secrets/{sid} | DELETE | Deletes a single secret |
 
