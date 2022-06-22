@@ -17,7 +17,7 @@ To prepare OCS to receive OMF messages from the adapter, create an OMF connectio
 2. Create an **OMF** type **Connection**.
 
    The connection should link the created client to an existing [namespace](https://docs.osisoft.com/bundle/ocs/page/set-up/namespaces/namespaces-concept.html) where the data will be stored.
-   
+
    The **OMF Endpoint** URL for the connection will be used as the egress configuration *Endpoint* property.
 
 ## PI Server
@@ -32,7 +32,7 @@ To prepare a PI Server to receive OMF messages from the adapter, a PI Web API OM
 
 2. Configure PI Web API to use *Basic* authentication.
 
- For complete steps, as well as best practices and recommendations, see the [PI Web API User Guide](https://docs.osisoft.com/bundle/pi-web-api/page/authentication-methods.html).
+ For complete steps, as well as best practices and recommendations, see the following topic in the PI Web API User Guide: [Authentication methods](https://docs.osisoft.com/bundle/pi-web-api/page/authentication-methods.html).
 
 **Notes:**
 
