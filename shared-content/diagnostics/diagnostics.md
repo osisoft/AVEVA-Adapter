@@ -18,7 +18,3 @@ The following diagnostics data are available:
 - [Stream count](xref:StreamCount)
 - [IO rate](xref:IORate)
 - [Error rate](xref:ErrorRate)
-
-Additionally, if the adapter supports failover, the following data is available:
-
-- [Failover Status](xref:FailoverStatus)
