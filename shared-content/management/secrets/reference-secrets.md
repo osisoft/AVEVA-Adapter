@@ -17,13 +17,13 @@ If a secret Id and value already exist in the secret management configuration, f
 
 ```code
 {
-    ""Id": "my-secret-id",
+    ""Id": "secret-id",
     "Value": "<secretValue>""
 }
 ```
 The secret Id can be referenced in any configuration with a protected property, such as client secret or password.
 
-For example, in a health configuration with a PWA and OCS endpoint:
+For example, in a health configuration with a PWA and OCS endpoint "{{secret-id}}" can be substituted in the protected properties:
 
 ```code
 [
@@ -31,13 +31,13 @@ For example, in a health configuration with a PWA and OCS endpoint:
         "Id": "OCS",
         "Endpoint": "https://<OCS OMF endpoint>",
         "ClientId": "<clientid>",
-        "ClientSecret": "{{my-secret-id}}"
+        "ClientSecret": "{{secret-id}}"
     },
     {
         "Id": "PI Web API",
         "Endpoint": "https://<pi web api server>:<port>/piwebapi/omf/",
         "UserName": "<username>",
-        "Password": "{{my-secret-id}}"
+        "Password": "{{secret-id}}"
     }
 ]
 ```
@@ -49,7 +49,7 @@ and replace the value of the protected property on the configuration to be the g
 
 ### Example
 
-Adding in a health configuration as follows, with a plain client secret
+Adding in a health configuration as follows, with a string client secret
 
 ```code
 [
@@ -70,7 +70,7 @@ updates the secrets management configuration to add the following id and value:
     "Value": "<clientsecret>"
 }
 ```
-and replaces the plain text password in the health configuration to now reference the client secret value by secret Id:
+and replaces the string password in the health configuration to now reference the client secret value by secret Id:
 
 ```code
 [
