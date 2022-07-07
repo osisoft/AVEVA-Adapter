@@ -17,7 +17,7 @@ If a secret Id and value already exist in the secret management configuration, f
     "Value": "<secretValue>""
 }
 
-It can be refrenced in any configuration with a protected property, such as client secret or password.
+It can be referenced in any configuration with a protected property, such as client secret or password.
     
 For example, in a health configuration with a PWA and OCS endpoint:
 ```code
