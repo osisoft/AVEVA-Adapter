@@ -7,8 +7,10 @@ To use a secret in another configuration, the value of the protected property ma
 The default behavior of any configuration with a protected property is to add the value into the secrets management configuration, automatically generate a secret id, 
 and replace the value of the protected property on the configuration to be the generated secret id.
 
-##Examples
+## Examples
+
 Existing secret Id example:
+
 If a secret Id and value already exist in the secret management configuration, for example:
 {
     ""Id": "my-secret-id",
@@ -16,7 +18,9 @@ If a secret Id and value already exist in the secret management configuration, f
 }
 
 It can be refrenced in any configuration with a protected property, such as client secret or password.
+    
 For example, in a health configuration with a PWA and OCS endpoint:
+```code
 [
     {
         "Id": "OCS",
@@ -31,9 +35,12 @@ For example, in a health configuration with a PWA and OCS endpoint:
         "Password": "{{my-secret-id}}"
     }
 ]
+```
 
 Default behavior example:
+    
 Adding in a health configuration as follows, with a plain client secret.
+```code
 [
     {
         "Id": "OCS",
@@ -42,14 +49,17 @@ Adding in a health configuration as follows, with a plain client secret.
         "ClientSecret": "<clientsecret>"
     }
 ]
+```
 
 creates, or updates the secrets management configuration to add the following id and value:
+```code
 {
     "Id": "System.HealthEndpoints.OCS.ClientSecret",
     "Value": "<clientsecret>"
 }
-
+```
 and replaces the plain text password in the health configuration to now reference the client secret value by secret Id:
+```code
 [
     {
         "Id": "OCS",
@@ -58,3 +68,4 @@ and replaces the plain text password in the health configuration to now referenc
         "ClientSecret": "{{System.HealthEndpoints.OCS.ClientSecret}}"
     }
 ]
+```
