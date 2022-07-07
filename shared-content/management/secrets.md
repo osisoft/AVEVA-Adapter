@@ -57,7 +57,7 @@ The following parameters are available for configuring secrets:
 | **Id**              | Required | 'string' | Id of configuration to be added, edited, or removed. <br><br>Allowed value: any string that is not enclosed by brackets (e.g "<secretId>" is acceptable but "{{<secretId>}}" is not)|
 | **Description** | Optional | 'string' | Description of the secret. |
 | **ExpirationDate** | Optional | 'string' | Expiration date of the secret. |
-| **Value** | Required | 'string' | The secret value. <br><br>Allowed value: any string that is not enclosed by brackets (e.g "<value>" is acceptable but "{{<value>}} is not")|
+| **Value** | Required | 'string' | The secret value. <br><br>Allowed value: any string that is not enclosed by brackets (e.g "<value>" is acceptable but "{{<value>}}" is not)|
 
   **Notes:** The **Description** and **ExpirationDate** fields are not used in the adapter and are metadata. 
   If the **Value** is the masked value "\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*", then the **Value** will be unchanged from the previous configuration. An error will be returned if the masked value is used when no previous configuration for that **Id** exists. 
