@@ -1,25 +1,30 @@
-## Referencing Secrets by Id
+---
+uid: ReferenceSecrets
+---
+
+# Reference Secrets
 
 Secrets may be referenced by their Id in any configuration that has a protected property, such as client secret or password.
 
-To use a secret in another configuration, the value of the protected property may be replaced with "{{your-secret-Id}}".
+## Reference Secrets by Id
 
-The default behavior of any configuration with a protected property is to add the value into the secrets management configuration, automatically generate a secret id, 
-and replace the value of the protected property on the configuration to be the generated secret id.
+To use a secret in another configuration the value of the protected property may be replaced with "{{secret-Id}}", where secret-id 
+is an existing id in the secret management configuration.
 
-## Examples
-
-Existing secret Id example:
+### Example
 
 If a secret Id and value already exist in the secret management configuration, for example:
+
+```code
 {
     ""Id": "my-secret-id",
     "Value": "<secretValue>""
 }
+```
+The secret Id can be referenced in any configuration with a protected property, such as client secret or password.
 
-It can be referenced in any configuration with a protected property, such as client secret or password.
-    
 For example, in a health configuration with a PWA and OCS endpoint:
+
 ```code
 [
     {
@@ -37,9 +42,15 @@ For example, in a health configuration with a PWA and OCS endpoint:
 ]
 ```
 
-Default behavior example:
-    
-Adding in a health configuration as follows, with a plain client secret.
+## Adding Secrets by Value
+
+The default behavior of any configuration with a protected property is to add the value into the secrets management configuration, automatically generate a secret id, 
+and replace the value of the protected property on the configuration to be the generated secret id.
+
+### Example
+
+Adding in a health configuration as follows, with a plain client secret
+
 ```code
 [
     {
@@ -51,7 +62,8 @@ Adding in a health configuration as follows, with a plain client secret.
 ]
 ```
 
-creates, or updates the secrets management configuration to add the following id and value:
+updates the secrets management configuration to add the following id and value:
+
 ```code
 {
     "Id": "System.HealthEndpoints.OCS.ClientSecret",
@@ -59,6 +71,7 @@ creates, or updates the secrets management configuration to add the following id
 }
 ```
 and replaces the plain text password in the health configuration to now reference the client secret value by secret Id:
+
 ```code
 [
     {
