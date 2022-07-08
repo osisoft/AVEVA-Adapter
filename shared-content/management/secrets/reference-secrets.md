@@ -8,7 +8,7 @@ Secrets may be referenced by their Id in any configuration that has a protected 
 
 ## Reference Secrets by Id
 
-To use a secret in another configuration, the value of the protected property may be replaced with "{{secretId}}", where secretId 
+To use a secret in another configuration, the value of the protected property may be replaced with `{{<secretId>}}`, where secretId 
 is an existing id in the secret management configuration.
 
 ### Example
@@ -23,7 +23,7 @@ If a secret Id and value already exist in the secret management configuration, f
 ```
 The secret Id can be referenced in any configuration with a protected property, such as client secret or password.
 
-For example, in a health configuration with a PWA and OCS endpoint "{{<secretId>}}" can be substituted in the protected properties:
+For example, in a health configuration with a PWA and OCS endpoint `{{<secretId>}}` can be substituted in the protected properties:
 
 ```code
 [
