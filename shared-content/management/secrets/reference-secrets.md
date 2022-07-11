@@ -4,7 +4,7 @@ uid: ReferenceSecrets
 
 # Reference Secrets
 
-Secrets can be referenced by their Id in any configuration that has a protected property, such as client secret or password.
+Secrets can be referenced by their Id in any configuration through a protected property, such as a client secret or password.
 
 ## Reference Secrets by Id
 
@@ -44,12 +44,11 @@ For example, in a health configuration with a PWA and OCS endpoint `{{<secretId>
 
 ## Adding Secrets by Value
 
-The default behavior of any configuration with a protected property is to add the value into the secrets management configuration, automatically generate a secret id, 
-and replace the value of the protected property on the configuration to be the generated secret id.
+The default behavior of any configuration with a protected property is to add the value into the secrets management configuration, automatically generate a secret id, and replace the value of the protected property on the configuration to be the generated secret id.
 
 ### Example
 
-Adding in a health configuration as follows, with a string client secret
+Adds a health configuration with a client secret string as follows, 
 
 ```code
 [
@@ -70,7 +69,7 @@ updates the secrets management configuration to add the following id and value:
     "Value": "<clientsecret>"
 }
 ```
-and replaces the string password in the health configuration to now reference the client secret value by secret Id:
+and replaces the string password in the health configuration to reference the client secret value by secret Id:
 
 ```code
 [
