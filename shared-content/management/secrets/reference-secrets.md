@@ -8,8 +8,7 @@ Secrets can be referenced by their Id in any configuration through a protected p
 
 ## Reference Secrets by Id
 
-To use a secret in another configuration, the value of the protected property can be replaced with `{{<secretId>}}`, where `<secretId>` 
-is an existing id in the secret management configuration.
+To use a secret in a configuration, the value of the protected property can be replaced with `{{<secretId>}}`, where `<secretId>` is an existing id in the secret management configuration.
 
 ### Example
 
@@ -48,7 +47,7 @@ The default behavior of any configuration with a protected property is to add th
 
 ### Example
 
-Adds a health configuration with a client secret string as follows, 
+Add a health configuration with a client secret value `<clientsecret>`: 
 
 ```code
 [
@@ -61,7 +60,9 @@ Adds a health configuration with a client secret string as follows,
 ]
 ```
 
-updates the secrets management configuration to add the following id and value:
+The secrets management configuration updates to add the following id and value:
+
+**Note:** The value `<clientsecret>` is encrypted before storing in the secrets management configuration.
 
 ```code
 {
@@ -69,7 +70,8 @@ updates the secrets management configuration to add the following id and value:
     "Value": "<clientsecret>"
 }
 ```
-and replaces the string password in the health configuration to reference the client secret value by secret Id:
+
+The health configuration replaces `<clientsecret>` with the generated secret Id `"{{System.HealthEndpoints.OCS.ClientSecret}}"`:
 
 ```code
 [

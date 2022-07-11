@@ -7,6 +7,8 @@ uid: Secrets
 PI Adapters use secrets when authenticating with sources and destinations. All secrets are encrypted and stored in the `management_secrets.json` file and are referenced by using their ID in other configurations' protected fields (e.g. "clientSecret" : "{{Secret#2}}"). 
 See [Reference Secrets](xref:ReferenceSecrets) for more information on how to use a secret Id in other configurations.
 
+**Note:** As part of making adapters as secure as possible, any secret values that you configure are stored in encrypted form where cryptographic key material is stored separately in a secure location. If you edit the files directly, the adapter may not work as expected.
+
 ## Configure secrets
 
 Complete the following steps to configure secrets. Use the `PUT` method in conjunction with the `http://localhost:5590/api/v1/Management/Secrets` REST endpoint to initialize the configuration.
@@ -54,10 +56,10 @@ The following parameters are available for configuring secrets:
 
 | Parameter                 | Required | Type      | Description                                                  |
 | ------------------------- | -------- | --------- | ------------------------------------------------------------ |
-| **Id**              | Required | 'string' | Id of configuration to be added, edited, or removed. <br><br>Allowed value: any string that does not start or end with braces <br>(e.g `<secretId>` is acceptable but `{{<secretId>}}`, `{<secretId>}`, or `{<secretId>` are not)|
+| **Id**              | Required | 'string' | Id of configuration to be added, edited, or removed. <br><br>Allowed value: any string that does not start or end with curly braces <br>(e.g `<secretId>` is acceptable but `{{<secretId>}}`, `{<secretId>}`, or `{<secretId>` are not)|
 | **Description** | Optional | 'string' | Description of the secret. |
 | **ExpirationDate** | Optional | 'string' | Expiration date of the secret. |
-| **Value** | Required | 'string' | The secret value. <br><br>Allowed value: any string that is not enclosed by double braces <br>(e.g `<value>` is acceptable but `{{<value>}}` is not)|
+| **Value** | Required | 'string' | The secret value. <br><br>Allowed value: any string that is not enclosed by double curly braces <br>(e.g `<value>` is acceptable but `{{<value>}}` is not)|
 
   **Notes:** The **Description** and **ExpirationDate** fields are not used in the adapter and are metadata. 
   If the **Value** is the masked value "\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*", then the **Value** will be unchanged from the previous configuration. An error will be returned if the masked value is used when no previous configuration for that **Id** exists. 
