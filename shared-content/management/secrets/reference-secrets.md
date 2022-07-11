@@ -4,11 +4,11 @@ uid: ReferenceSecrets
 
 # Reference Secrets
 
-Secrets may be referenced by their Id in any configuration that has a protected property, such as client secret or password.
+Secrets can be referenced by their Id in any configuration that has a protected property, such as client secret or password.
 
 ## Reference Secrets by Id
 
-To use a secret in another configuration, the value of the protected property may be replaced with `{{<secretId>}}`, where secretId 
+To use a secret in another configuration, the value of the protected property can be replaced with `{{<secretId>}}`, where `<secretId>` 
 is an existing id in the secret management configuration.
 
 ### Example
