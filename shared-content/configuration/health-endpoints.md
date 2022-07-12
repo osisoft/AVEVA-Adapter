@@ -91,7 +91,7 @@ The following parameters are available for configuring health endpoints:
 
 ### PI Web API endpoint using a valid secret Id
 
-See [Reference Secrets](xref:ReferenceSecrets) for more information on how to use a secret Id
+See [Reference Secrets](xref:ReferenceSecrets) for more information on how to use a secret Id.
 
 ```code
 [{

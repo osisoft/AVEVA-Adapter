@@ -117,7 +117,7 @@ The following examples are valid egress configurations:
 
 ### Egress data to PI Web API using a valid secret Id
 
-See [Reference Secrets](xref:ReferenceSecrets) for more information on how to use a secret Id
+See [Reference Secrets](xref:ReferenceSecrets) for more information on how to use a secret Id.
 
 ```json
 [{
