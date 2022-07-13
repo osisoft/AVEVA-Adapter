@@ -17,7 +17,7 @@ Automatic history intervals cannot be longer than four days. If an interval is l
 ## Behavior changes with client failover enabled
 
 For adapters that support client failover, the automatic history recovery behavior is affected by whether or not you configure client failover for the running adapter instance. See [Client failover configuration](../client-failover.md) for configuring cilent failover on supported adapters. 
-- When client failover is disabled, the automatic history recovery works as described in [Automatic history recovery](#automatic-history-recovery) without any behavvior changes.
+- When client failover is disabled, the automatic history recovery works as described in [Automatic history recovery](#automatic-history-recovery) without any behavior changes.
 - When client failover is enabled, the automatic history recovery behave differently, as listed below.
   - The tracking of **DeviceStatus**, creation of history recovery intervals and automatic data backfill only occur when the adapter is in `Primary` role. 
   - The adapter does not track `Shutdown` of the adatper to create a new history recovery interval.
