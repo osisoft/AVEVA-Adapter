@@ -13,3 +13,12 @@ For automatic history recovery, the adapter tracks changes to the **DeviceStatus
 ## History recovery intervals
 
 Automatic history intervals cannot be longer than four days. If an interval is longer than four days, the adapter automatically changes the start time of the interval to be no earlier than four days before the end time prior to starting a recovery. If a current outage lasts longer than four days, when the device status finally improves the adapter recovers up to four days before the current time. This avoids introducing additional data gaps.
+
+## Behavior changes with client failover enabled
+
+For adapters that support client failover, the automatic history recovery behavior is affected by whether or not you configure client failover for the running adapter instance. See [Client failover configuration](../client-failover.md) for configuring cilent failover on supported adapters. 
+- When client failover is disabled, the automatic history recovery works as described in [Automatic history recovery](#automatic-history-recovery) without any behavvior changes.
+- When client failover is enabled, the automatic history recovery behave differently, as listed below.
+  - The tracking of **DeviceStatus**, creation of history recovery intervals and automatic data backfill only occur when the adapter is in `Primary` role. 
+  - The adapter does not track `Shutdown` of the adatper to create a new history recovery interval.
+  - The adapter with failover role changed from `Primary` to `Secondary` stops tracking all open intervals and close them all.
