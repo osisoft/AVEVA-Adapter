@@ -16,8 +16,8 @@ If a secret Id and value already exist in the secret management configuration, f
 
 ```code
 {
-    ""Id": "<secretId>",
-    "Value": "<secretValue>""
+    "Id": "<secretId>",
+    "Value": "<secretValue>"
 }
 ```
 The secret Id can be referenced in any configuration with a protected property, such as client secret or password.
@@ -62,14 +62,14 @@ Add a health configuration with a client secret value `<clientsecret>`:
 
 The secrets management configuration updates to add the following id and value:
 
-**Note:** The value `<clientsecret>` is encrypted before storing in the secrets management configuration.
-
 ```code
 {
     "Id": "System.HealthEndpoints.OCS.ClientSecret",
     "Value": "<clientsecret>"
 }
 ```
+
+> **Note:** The value `<clientsecret>` is encrypted before storing in the secrets management configuration.
 
 The health configuration replaces `<clientsecret>` with the generated secret Id `"{{System.HealthEndpoints.OCS.ClientSecret}}"`:
 
