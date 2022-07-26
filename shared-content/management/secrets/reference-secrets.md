@@ -71,7 +71,7 @@ The secrets management configuration updates to add the following **Id** and **V
 
 > **Note:** The **Value** `<clientsecret>` is encrypted before storing in the secrets management configuration.
 
-The health configuration replaces the **ClientSecret** value, `<clientsecret>`, with the generated secret Id `"{{System.HealthEndpoints.OCS.ClientSecret}}"`:
+The health configuration replaces the **ClientSecret** value with the generated secret Id `"{{System.HealthEndpoints.OCS.ClientSecret}}"`:
 
 ```code
 [
