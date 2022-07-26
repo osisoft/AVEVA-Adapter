@@ -4,7 +4,7 @@ uid: SystemAndAdapterConfiguration
 
 # System and adapter
 
-You can retrieve the configuration of, and configure the system component and adapter components together using a single file.
+You can retrieve and set the configuration of the system component and adapter components together using a single file.
 
 ## Change system and adapter configuration
 
@@ -37,7 +37,7 @@ If the operation fails due to errors in the configuration, the count of the erro
 
 ## Retrieve system and adapter configuration
 
-The entire application can be retrieved by issuing the following cURL command:
+The entire application configuration can be retrieved by issuing the following cURL command:
 
    ```bash
     curl -X GET "http://localhost:5590/api/v1/configuration"
