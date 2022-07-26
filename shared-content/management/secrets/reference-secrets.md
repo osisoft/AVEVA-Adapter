@@ -47,7 +47,7 @@ The default behavior of any configuration with a protected property is to add th
 
 ### Example
 
-Add a health configuration with a client secret value `<clientsecret>`: 
+Add a health configuration with a **ClientSecret** value `<clientsecret>`: 
 
 ```code
 [
@@ -60,7 +60,7 @@ Add a health configuration with a client secret value `<clientsecret>`:
 ]
 ```
 
-The secrets management configuration updates to add the following id and value:
+The secrets management configuration updates to add the following **Id** and **Value**:
 
 ```code
 {
@@ -69,9 +69,9 @@ The secrets management configuration updates to add the following id and value:
 }
 ```
 
-> **Note:** The value `<clientsecret>` is encrypted before storing in the secrets management configuration.
+> **Note:** The **Value** `<clientsecret>` is encrypted before storing in the secrets management configuration.
 
-The health configuration replaces `<clientsecret>` with the generated secret Id `"{{System.HealthEndpoints.OCS.ClientSecret}}"`:
+The health configuration replaces the **ClientSecret** value, `<clientsecret>`, with the generated secret Id `"{{System.HealthEndpoints.OCS.ClientSecret}}"`:
 
 ```code
 [

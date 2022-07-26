@@ -58,7 +58,7 @@ The following parameters are available for configuring secrets:
 | ------------------------- | -------- | --------- | ------------------------------------------------------------ |
 | **Id**              | Required | 'string' | Id of configuration to be added, edited, or removed. <br><br>Allowed value: any string that does not contain curly braces <br>(e.g., `<secretId>` is acceptable but `{{<secretId>}}`, `{<secretId>}`, or `{<secretId>` are not)|
 | **Description** | Optional | 'string' | Description of the secret.  <br><br> **Note:** The **Description** field is not used in the adapter and is metadata. |
-| **ExpirationDate** | Optional | 'datetime' | Expiration date of the secret. <br><br>The expected format is a Json DateTime `YYYY-MM-DDTHH:MM:SS` for local time, or `YYYY-MM-DDTHH:MM:SSZ` for UTC time. <br> **Note:** The **ExpirationDate** field is not used in the adapter and is metadata. |
+| **ExpirationDate** | Optional | 'datetime' | Expiration date of the secret. <br><br> Examples of valid Json DateTime strings representing date and time:  UTC: `yyyy-mm-ddThh:mm:ssZ`, Local: `mm-dd-yyyy hh:mm:ss` <br> **Note:** The **ExpirationDate** field is not used in the adapter and is metadata. |
 | **Value** | Required | 'string' | The secret value. <br><br>Allowed value: any string that is not enclosed by double curly braces <br>(e.g.,  `<value>` is acceptable but `{{<value>}}` is not)|
 
   **Note:** If the **Value** is the masked value "\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*", then the **Value** will be unchanged from the previous configuration. An error will be returned if the masked value is used when no previous configuration for that **Id** exists. 
