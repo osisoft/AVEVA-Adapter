@@ -106,7 +106,7 @@ UTC: `yyyy-mm-ddThh:mm:ssZ`
 
 Local: `yyyy-mm-ddThh:mm:ss`
 
-If the time not specified, it will default to the start of the day (e.g. `2025-06-19` will default to `2025-06-19T00:00:00`)
+If the time is not specified, it will default to the start of the day (e.g., `2025-06-19` will default to `2025-06-19T00:00:00`)
 
 ### Debugging folder or file structure
 
