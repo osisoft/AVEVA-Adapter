@@ -104,7 +104,9 @@ Date and time strings should use the following formats:
 
 UTC: `yyyy-mm-ddThh:mm:ssZ`
 
-Local: `mm-dd-yyyy hh:mm:ss`
+Local: `yyyy-mm-ddThh:mm:ss`
+
+If the time is not specified, it will default to the start of the day (e.g., `2025-06-19` will default to `2025-06-19T00:00:00`)
 
 ### Debugging folder or file structure
 
