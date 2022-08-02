@@ -113,7 +113,7 @@ The current failover `Role` is determined by the client failover endpoint. The c
 | **Primary** | When the adapter is in the `Primary` role, any configured components are started, connected to the data source, and collecting data. Data is egressed to the data endpoint(s). <br><br>**Note:** When the adapter is in the `Primary` role, any mode change does not affect adapter behavior and data will continue to be egressed regardless of mode. |
 | **Secondary** | When the adapter in in the `Secondary` role, adapter behavior varies based on the failover mode. For more information see [Failover Modes](#failover-modes). |
 
-When an adapter client failover configuration registers with an endpoint, if the adapter is the only adapter registered in that group it becomes the `Primary` adapter instance. If the adapter is not the only adapter registed in the client failover group, the `Primary` adapter instance is that with the highest `FailoverStatus` value. For more information on `FailoverStatus`. see [Failover Status](xref:FailoverStatus).
+When an adapter client failover configuration registers with an endpoint, if the adapter is the only adapter registered in that group it becomes the `Primary` adapter instance. If the adapter is not the only adapter registed in the client failover group, the `Primary` adapter instance is that with the highest `FailoverStatus` value. For more information on `FailoverStatus`, see [Failover Status](xref:FailoverStatus).
 
 ## Health
 

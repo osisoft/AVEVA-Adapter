@@ -4,7 +4,7 @@ uid: FailoverHealth
 
 # Failover Health
 
-PI Adapters produce various kinds of health data that can be egressed to different health endpoints. If an adapter has failover enabled, additional health information pertaining to failover is available/
+PI Adapters produce various kinds of health data that can be egressed to different health endpoints. If an adapter has failover enabled, additional health information pertaining to failover is available.
 
 To egress health related data, you have to configure an adapter health endpoint first. See [Health endpoint configuration](xref:HealthEndpointConfiguration).
 
@@ -22,9 +22,9 @@ The following static health data is available when an adapter has failover enabl
 | **Description** | Description of the health asset. |
 | **Host** | The hostname of the machine. | 
 | **Version** | The current version of the failover component. |
-| **Failover Group Id** | The group id of the client failover configuration. See  [Client Failover Configuration](xref;ClientFailoverConfiguration) for more.|
-| **Failover Mode** | The mode of the client failover configuration. See [Client Failover Configuration](xref;ClientFailoverConfiguration) for more. |
-| **Failover Endpoint** | The endpoint of the client failover configuration. See [Client Failover Configuration](xref;ClientFailoverConfiguration) for more. |
+| **Failover Group Id** | The `FailoverGroupId` of the client failover configuration. See  [Client Failover Configuration](xref;ClientFailoverConfiguration) for more.|
+| **Failover Mode** | The `Mode` of the client failover configuration. See [Client Failover Configuration](xref;ClientFailoverConfiguration) for more. |
+| **Failover Endpoint** | The `Endpoint` of the client failover configuration. See [Client Failover Configuration](xref;ClientFailoverConfiguration) for more. |
 
 ### Dynamic health data
 
