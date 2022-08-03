@@ -48,8 +48,7 @@ By default, the GET response contains application configuration without the stat
     curl --header "accept-verbosity: verbose" -X GET "http://localhost:5590/api/v1/configuration"
    ```
    
-   **Notes:**
-  * If you installed the adapter to listen on a non-default port, update `5590` to the port number in use.
+   **Note:** If you installed the adapter to listen on a non-default port, update `5590` to the port number in use.
 
 ## REST URLs
 
