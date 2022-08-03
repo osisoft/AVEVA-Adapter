@@ -37,7 +37,7 @@ If the operation fails due to errors in the configuration, the count of the erro
 
 ## Retrieve system and adapter configuration
 
-The entire application configuration can be retrieved by issuing the following cURL command:
+The entire application configuration can be retrieved by entering the following cURL command:
 
    ```bash
     curl -X GET "http://localhost:5590/api/v1/configuration"
