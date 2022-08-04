@@ -62,7 +62,7 @@ The adapter behaves according to failover mode when the failover role is `Second
 | Mode | Description
 ---------|---------
 | **Hot** | When in `Hot` failover mode, configured components for the `Secondary` adapter instance start and collect data from the data source. Collected data is buffered into the failover-specific buffer folder until the adapter instance in the `Primary` role has finished sending data to the destination. Data from the `Secondary` adapter instance is not egressed to the data endpoint(s). |
-| **Warm** | When in `Warm` failover mode, configured components for the `Secondary` adapter instance start and connect to the data source but do NOT collect data from the data source. Since data is not being collected, data is not buffered nor egressed to the data endpoint(s). |
+| **Warm** | When in `Warm` failover mode, configured components for the `Secondary` adapter instance start and connect to the data source but do not collect data from the data source. Since data is not being collected, data is not buffered nor egressed to the data endpoint(s). |
 | **Cold** | When in `Cold` failover mode, none of the configured components for the `Secondary` adapter instance start. The adapter does not connect to nor collect data from the data source, and data is not egressed to the data endpoint(s). |
 | **None** | When in `None` failover mode, configured components start, collect, and egress data from the data source. |
 
