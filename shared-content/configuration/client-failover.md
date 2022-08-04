@@ -46,7 +46,7 @@ On successful execution, the client failover change takes effect immediately dur
 | **Name** | Optional | `string` | The friendly name of the client failover configuration <br><br>Allowed value: any string value<br>Default value: `null` |
 | **Description** | Optional | `string`| The description of the client failover configuration <br><br>Allowed value: any string value<br>Default value: `null` |
 | **FailoverTimeout** | Optional | `datetime` | The max time for the adapter instance to wait for responses from the failover endpoint before timing out. <br><br>Allowed value: a string representation of date time using `hh:mm:ss` <br>Default value: `00:01:00` |
-| **Mode** | Required | `string` | The failover mode of the registered adapter. <br><br>Allowed value: `Hot`, `Warm`, `Cold`, `None` <br>Default value: `None` <br>For more information see [Failover Modes](#failover-modes). |
+| **Mode** | Required | `string` | The failover mode of the registered adapter. <br><br>Allowed value: `Hot`, `Warm`, `Cold`, `None` <br>Default value: `None` <br>For more information, see [Failover Modes](#failover-modes). |
 | **Endpoint** | Required | `string` | Destination that support client failover registration. Supported destinations include OCS and PI Server.<br><br>Allowed value: well-formed http or https endpoint string<br>Default: `null` |
 | **UserName** | Required for PI server endpoint | `string` | Basic authentication to the PI Web API OMF endpoint <br><br>Allowed value: any string<br>Default: `null`<br><br>**Note:** If your username contains a backslash, you must add an escape character, for example, type `OilCompany\TestUser` as `OilCompany\\TestUser`. |
 | **Password** | Required for PI server endpoint | `string` | Basic authentication to the PI Web API OMF endpoint <br><br>Allowed value: any string<br>Default: `null` |
@@ -56,14 +56,16 @@ On successful execution, the client failover change takes effect immediately dur
 | **ValidateEndpointCertificate** | Optional | `bool`| Disables verification of destination certificate.<br><br>**Note:** Only use for testing with self-signed certificates. <br><br>Allowed value: `true` or `false`<br>Default value: `true` |
 
 ### Failover Modes
+
+The adapter behaves according to failover mode when the failover role is `Secondary`. For more information on failover role, see [Failover Role](#failover-role). Available failover modes may vary based on adapter.
+
 | Mode | Description
 ---------|---------
-| **Hot** | When the adapter is in `Hot` failover mode, any configured components are started and are collecting data from the data source. Collected data is buffered into the Failover specific buffer folder. Data is not egressed to the data endpoint(s). |
-| **Warm** | When the adapter is in `Warm` failover mode, any configured components are started and are connected to the data source but are NOT collecting data from the data source. Since data is not being collected, data is not buffered. Data is not egressed to the data endpoint(s). |
-| **Cold** | When the adapter is in `Cold` failover mode, any configured components are NOT started. The adapter does not connect to the data source and is not collecting data. Data is not egressed to the data endpoint(s).|
-| **None** | When the adapter is in `None` failover mode, any configured components are started and are collecting data from the data source. Data is egressed to the data endpoint(s). <br><br>**Note:** An adapter in the `Secondary` role with mode of `None` has the same behavior as an adapter in the `Primary` role. |
+| **Hot** | When in `Hot` failover mode, configured components for the `Secondary` adapter instance start and collect data from the data source. Collected data is buffered into the failover-specific buffer folder until the adapter instance in the `Primary` role has finished sending data to the destination. Data from the `Secondary` adapter instance is not egressed to the data endpoint(s). |
+| **Warm** | When in `Warm` failover mode, configured components for the `Secondary` adapter instance start and connect to the data source but do NOT collect data from the data source. Since data is not being collected, data is not buffered nor egressed to the data endpoint(s). |
+| **Cold** | When in `Cold` failover mode, none of the configured components for the `Secondary` adapter instance start. The adapter does not connect to nor collect data from the data source, and data is not egressed to the data endpoint(s). |
+| **None** | When in `None` failover mode, configured components start, collect, and egress data from the data source. |
 
-**Note:** The adapter behaves according to failover mode when the failover role is `Secondary`. For example, if the current failover role is `Primary` and the client failover configuration has mode set to `Cold`, the adapter start, connect to the data source, and egress data to the data endpoint(s). Available failover modes may vary based on adapter.
 
 ## Example client failover configuration
 
@@ -110,14 +112,14 @@ The current failover `Role` is determined by the client failover endpoint. The c
 
 | Role | Description
 ---------|---------
-| **Primary** | When the adapter is in the `Primary` role, any configured component will start, connect to the data source, and collect data. Data is egressed to the data endpoint(s). <br><br>**Note:** While the adapter is in the `Primary` role, a change in `Mode` in the client failover configuration does not affect adapter behavior and data will continue to be egressed. |
+| **Primary** | When the adapter is in the `Primary` role, configured components start, collect, and egress data from the data source to the data endpoint(s). <br><br>**Note:** While the adapter is in the `Primary` role, a change in `Mode` in the client failover configuration does not affect adapter behavior and data will continue to be egressed. |
 | **Secondary** | When the adapter is in the `Secondary` role, adapter behavior varies based on the failover mode. For more information, see [Failover Modes](#failover-modes). |
 
 When an adapter client failover configuration registers with an endpoint and it is the only adapter registered in the group, it becomes the `Primary` adapter instance. If the adapter is not the only adapter registered in the client failover group, the `Primary` adapter instance is that with the highest `FailoverStatus` value. For more information on `FailoverStatus`, see [Failover Status](xref:FailoverStatus).
 
 ## Health
 
-If the adapter has health endpoints configured, the client failover configuration values `Mode` and `FailoverGroupId` will be included in the static failover health data. For more information see [Failover Health](xref:FailoverHealth).
+If the adapter has health endpoints configured, the client failover configuration values `Mode` and `FailoverGroupId` will be included in the static failover health data. For more information, see [Failover Health](xref:FailoverHealth).
 
 ## REST URLs
 
