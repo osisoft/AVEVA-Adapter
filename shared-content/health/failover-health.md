@@ -34,3 +34,7 @@ The following dynamic health data is available when an adapter has failover enab
 
 - [Device status](xref:DeviceStatus)
 - [Next Health Message Expected](xref:NextHealthMessageExpected)
+
+### Failover status
+
+The failover status of the adapter is logged in the diagnostics stream with the `Id` `Failover.FailoverStatus` diagnostic stream. For more information, see [Failover Status](xref:FailoverStatus).
