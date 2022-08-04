@@ -6,7 +6,7 @@ uid: FailoverHealth
 
 PI Adapters produce various kinds of health data that can be egressed to different health endpoints. If an adapter has failover enabled, additional health information pertaining to failover is available.
 
-To egress health related data, you have to configure an adapter health endpoint first. See [Health endpoint configuration](xref:HealthEndpointConfiguration).
+To egress health-related data, you have to configure an adapter health endpoint first. For more information, see [Health endpoint configuration](xref:HealthEndpointConfiguration).
 
 ## Available health data
 
