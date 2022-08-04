@@ -66,7 +66,6 @@ The adapter behaves according to failover mode when the failover role is `Second
 | **Cold** | When in `Cold` failover mode, none of the configured components for the `Secondary` adapter instance start. The adapter does not connect to nor collect data from the data source, and data is not egressed to the data endpoint(s). |
 | **None** | When in `None` failover mode, configured components start, collect, and egress data from the data source. |
 
-
 ## Example client failover configuration
 
 The following is an example of a complete client failover configuration.
@@ -108,7 +107,7 @@ The following is an example of failover state returned from the adapter:
 
 ### Failover Role 
 
-The current failover `Role` is determined by the client failover endpoint. The current failover role is visible by querying the failover state, or by looking at the failover health asset if a health endpoint is configured.
+The current failover `Role` is determined by the client failover endpoint. The current failover role is visible by querying the failover state, or by looking at the failover status diagnostics streams. For more information on failover status, see [FailoverStatus](xref:FailoverStatus).
 
 | Role | Description
 ---------|---------
@@ -119,7 +118,7 @@ When an adapter client failover configuration registers with an endpoint and it 
 
 ## Health
 
-If the adapter has health endpoints configured, the client failover configuration values `Mode` and `FailoverGroupId` will be included in the static failover health data. For more information, see [Failover Health](xref:FailoverHealth).
+If the adapter has health endpoints configured, the client failover configuration values `Mode` and `FailoverGroupId` are included in the static failover health data. For more information, see [Failover Health](xref:FailoverHealth).
 
 ## REST URLs
 

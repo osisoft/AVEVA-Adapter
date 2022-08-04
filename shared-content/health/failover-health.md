@@ -18,13 +18,13 @@ The following static health data is available when an adapter has failover enabl
 
 | Property | Description |
 ---------|---------
-| **Name** | The name of the node. For more information see [AF structure](#af-structure). |
+| **Name** | The name of the node. For more information, see [AF structure](#af-structure). |
 | **Description** | Description of the health asset. |
 | **Host** | The hostname of the machine. | 
 | **Version** | The current version of the failover component. |
-| **Failover Group Id** | The `FailoverGroupId` of the client failover configuration. See  [Client Failover Configuration](xref;ClientFailoverConfiguration) for more.|
-| **Failover Mode** | The `Mode` of the client failover configuration. See [Client Failover Configuration](xref;ClientFailoverConfiguration) for more. |
-| **Failover Endpoint** | The `Endpoint` of the client failover configuration. See [Client Failover Configuration](xref;ClientFailoverConfiguration) for more. |
+| **Failover Group Id** | The `FailoverGroupId` of the client failover configuration. For more information, see  [Client Failover Configuration](xref;ClientFailoverConfiguration).|
+| **Failover Mode** | The `Mode` of the client failover configuration. For more information, see [Client Failover Configuration](xref;ClientFailoverConfiguration). |
+| **Failover Endpoint** | The `Endpoint` of the client failover configuration. For more information, see [Client Failover Configuration](xref;ClientFailoverConfiguration). |
 
 ### Dynamic health data
 
