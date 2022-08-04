@@ -12,7 +12,7 @@ To egress health related data, you have to configure an adapter health endpoint 
 
 ### Static health data
 
-Statis health data is only updated when the client failover configuration is updated. See [Client Failover Configuration](xref;ClientFailoverConfiguration) for more information.
+Static health data is only updated when the client failover configuration is updated. For more information, see [Client Failover Configuration](xref:ClientFailoverConfiguration).
 
 The following static health data is available when an adapter has failover enabled:
 
