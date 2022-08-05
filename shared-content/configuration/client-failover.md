@@ -57,7 +57,7 @@ On successful execution, the client failover change takes effect immediately dur
 
 ### Failover Modes
 
-The adapter behaves according to failover mode when the failover role is `Secondary`. For more information on failover role, see [Failover Role](#failover-role). Available failover modes may vary based on adapter.
+The failover behavior outlined below corresponds to adapter instances with the 'Secondary' failover role. Available failover modes may vary based on adapter. For more information on failover role, see [Failover Role](#failover-role).
 
 | Mode | Description
 ---------|---------
