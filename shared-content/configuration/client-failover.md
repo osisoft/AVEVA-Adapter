@@ -46,7 +46,7 @@ On successful execution, the client failover change takes effect immediately dur
 | **Name** | Optional | `string` | The friendly name of the client failover configuration <br><br>Allowed value: any string value<br>Default value: `null` |
 | **Description** | Optional | `string`| The description of the client failover configuration <br><br>Allowed value: any string value<br>Default value: `null` |
 | **FailoverTimeout** | Optional | `datetime` | The max time for the adapter instance to wait for responses from the failover endpoint before timing out. <br><br>Allowed value: a string representation of date time using `hh:mm:ss` <br>Default value: `00:01:00` |
-| **Mode** | Required | `string` | The failover mode of the registered adapter. <br><br>Allowed value: `Hot`, `Warn`, `Cold`, `None` <br>Default value: `None` |
+| **Mode** | Required | `string` | The failover mode of the registered adapter. <br><br>Allowed value: `Hot`, `Warm`, `Cold`, `None` <br>Default value: `None` <br>For more information, see [Failover Modes](#failover-modes). |
 | **Endpoint** | Required | `string` | Destination that support client failover registration. Supported destinations include OCS and PI Server.<br><br>Allowed value: well-formed http or https endpoint string<br>Default: `null` |
 | **UserName** | Required for PI server endpoint | `string` | Basic authentication to the PI Web API OMF endpoint <br><br>Allowed value: any string<br>Default: `null`<br><br>**Note:** If your username contains a backslash, you must add an escape character, for example, type `OilCompany\TestUser` as `OilCompany\\TestUser`. |
 | **Password** | Required for PI server endpoint | `string` | Basic authentication to the PI Web API OMF endpoint <br><br>Allowed value: any string<br>Default: `null` |
@@ -54,6 +54,17 @@ On successful execution, the client failover change takes effect immediately dur
 | **ClientSecret** | Required for OCS endpoint | `string`| Authentication with the OCS OMF endpoint <br><br>Allowed value: any string, can be null if the endpoint URL schema is `HTTP`<br>Default: `null` |
 | **TokenEndpoint** | Optional for OCS endpoint | `string`| Retrieves an OCS token from an alternative endpoint <br><br>Allowed value: well-formed http or https endpoint string <br>Default value: `null` |
 | **ValidateEndpointCertificate** | Optional | `bool`| Disables verification of destination certificate.<br><br>**Note:** Only use for testing with self-signed certificates. <br><br>Allowed value: `true` or `false`<br>Default value: `true` |
+
+### Failover Modes
+
+The failover behavior outlined below corresponds to adapter instances with the 'Secondary' failover role. Available failover modes may vary based on adapter. For more information on failover role, see [Failover Role](#failover-role).
+
+| Mode | Description
+---------|---------
+| **Hot** | When in `Hot` failover mode, configured components for the `Secondary` adapter instance start and collect data from the data source. Collected data is buffered into the failover-specific buffer folder until the adapter instance in the `Primary` role has finished sending data to the destination. Data from the `Secondary` adapter instance is not egressed to the data endpoint(s). |
+| **Warm** | When in `Warm` failover mode, configured components for the `Secondary` adapter instance start and connect to the data source but do not collect data from the data source. Since data is not being collected, data is not buffered nor egressed to the data endpoint(s). |
+| **Cold** | When in `Cold` failover mode, none of the configured components for the `Secondary` adapter instance start. The adapter does not connect to nor collect data from the data source, and data is not egressed to the data endpoint(s). |
+| **None** | When in `None` failover mode, configured components start, collect, and egress data from the data source. |
 
 ## Example client failover configuration
 
@@ -93,9 +104,21 @@ The following is an example of failover state returned from the adapter:
     "AdapterState": "Running"
 }
 ```
+
+### Failover Role 
+
+The current failover `Role` is determined by the client failover endpoint. The current failover role is visible by querying the failover state, or by looking at the failover status diagnostics streams. For more information on failover status, see [FailoverStatus](xref:FailoverStatus).
+
+| Role | Description
+---------|---------
+| **Primary** | When the adapter is in the `Primary` role, configured components start, collect, and egress data from the data source to the data endpoint(s). <br><br>**Note:** While the adapter is in the `Primary` role, a change in `Mode` in the client failover configuration does not affect adapter behavior and data will continue to be egressed. |
+| **Secondary** | When the adapter is in the `Secondary` role, adapter behavior varies based on the failover mode. For more information, see [Failover Modes](#failover-modes). |
+
+When an adapter client failover configuration registers with an endpoint and it is the only adapter registered in the group, it becomes the `Primary` adapter instance. If the adapter is not the only adapter registered in the client failover group, the `Primary` adapter instance is that with the highest `FailoverStatus` value. For more information on `FailoverStatus`, see [Failover Status](xref:FailoverStatus).
+
 ## Health
 
-If the adapter has health endpoints configured, the client failover configuration values `Mode` and `FailoverGroupId` will be included in the static failover health data.
+If the adapter has health endpoints configured, the client failover configuration values `Mode` and `FailoverGroupId` are included in the static failover health data. For more information, see [Failover Health](xref:FailoverHealth).
 
 ## REST URLs
 
