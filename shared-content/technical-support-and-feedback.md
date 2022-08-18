@@ -37,4 +37,3 @@ To submit documentation feedback for PI Adapters, send an email to [documentatio
 - Details of the suggestion or error
 
 The technical documentation team will review and address your feedback in future documentation updates.
-
