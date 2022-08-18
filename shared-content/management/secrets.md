@@ -5,6 +5,9 @@ uid: Secrets
 # Secrets
 
 PI Adapters use secrets when authenticating with sources and destinations. All secrets are encrypted and stored in the `management_secrets.json` file and are referenced by using their ID in other configurations' protected fields (e.g. "clientSecret" : "{{Secret#2}}"). 
+See [Reference Secrets](xref:ReferenceSecrets) for more information on how to use a secret Id in other configurations.
+
+**Note:** For adapters to be as secure as possible, any secret values you configure are stored in encrypted form where cryptographic key material is stored separately in a secure location. If you edit the files directly, the adapter may not work as expected.
 
 ## Configure secrets
 
@@ -53,13 +56,12 @@ The following parameters are available for configuring secrets:
 
 | Parameter                 | Required | Type      | Description                                                  |
 | ------------------------- | -------- | --------- | ------------------------------------------------------------ |
-| **Id**              | Required | 'string' | Id of configuration to be added, edited, or removed. |
-| **Description** | Optional | 'string' | Description of the secret. |
-| **ExpirationDate** | Optional | 'string' | Expiration date of the secret. |
-| **Value** | Required | 'string' | The secret value. |
+| **Id**              | Required | 'string' | Id of configuration to be added, edited, or removed. <br><br>Allowed value: any string that does not contain curly braces <br>(e.g., `<secretId>` is acceptable but `{{<secretId>}}`, `{<secretId>}`, `<secret{Id>`or `{<secretId>` are not)|
+| **Description** | Optional | 'string' | Description of the secret.  <br><br>Allowed value: any string <br> Default: `null` <br> **Note:** The **Description** field is metadata and not used in the adapter.|
+| **ExpirationDate** | Optional | 'datetime' | Expiration date of the secret. <br><br> Allowed formats:  UTC: `"yyyy-mm-ddThh:mm:ssZ"`; Local: `"yyyy-mm-ddThh:mm:ss"`. If the time is not specified, it will default to the start of the day (e.g., `2025-06-19` will default to `2025-06-19T00:00:00`) <br>Default: `null`<br> **Note:** The **ExpirationDate** field is metadata and not used in the adapter. |
+| **Value** | Required | 'string' | The secret value. <br><br>Allowed value: any string that is not explicitly enclosed by double curly braces <br>(e.g., `<value>`, `{{{<value>}}`, or `{{<val{ue>}}` is acceptable but `{{<value>}}` is not)|
 
-  **Notes:** The **Description** and **ExpirationDate** fields are not used in the adapter and are metadata. 
-  If the **Value** is the masked value "\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*", then the **Value** will be unchanged from the previous configuration. An error will be returned if the masked value is used when no previous configuration for that **Id** exists. 
+  **Note:** If the **Value** is the masked value "\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*", then the **Value** will be unchanged from the previous configuration. An error will be returned if the masked value is used when no previous configuration for that **Id** exists. 
 
 ## Example
 
@@ -67,12 +69,12 @@ The following parameters are available for configuring secrets:
 [
 	{
 	  "Id": "OmfEgress.DataEndpoints.Endpoint1.ClientSecret",
-	  "Value": "CfDJ8FK3AvrP",
+	  "Value": "CfDJ8FK3AvrP"
 	},
 	{
 	  "Id": "MyCustomSecret",
 	  "Description": "This is a secret",
-	  "ExpirationDate": "06/17/2024 18:40:57"
+	  "ExpirationDate": "2024-06-17",
 	  "Value": "pEjrGcq7&QK6CF",
 	}
 ]
@@ -87,7 +89,7 @@ For the purposes of readability, the secret id is abbreviated {sid}.
 | api/v1/management/secrets | GET | Returns entire secrets configuration (secret values will be hidden by *s) |
 | api/v1/management/secrets | PUT | Creates or replaces entire secrets configuration |
 | api/v1/management/secrets | DELETE | Deletes entire secrets configuration |
-| api/v1/management/secrets/{sid} | GET | Retuns single secret if exists (secret values will be hidden by *s) |
-| api/v1/management/secrets/{sid} | PUT | Creates or repaces a single secret |
+| api/v1/management/secrets/{sid} | GET | Returns a single secret if it exists (secret values will be hidden by *s) |
+| api/v1/management/secrets/{sid} | PUT | Creates or replaces a single secret |
 | api/v1/management/secrets/{sid} | DELETE | Deletes a single secret |
 
