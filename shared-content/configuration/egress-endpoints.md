@@ -62,8 +62,8 @@ The following parameters are available for configuring egress endpoints:
 |---------------------------------|---------------------------|-----------|-------------|
 | **Id**                          | Optional                  | `string`    | Unique identifier<br><br>Allowed value: any string identifier<br>Default value: new GUID |
 | **Endpoint**                    | Required                  | `string`    | Destination that accepts OMF v1.2 messages. Supported destinations include OCS and PI Server.<br><br>Allowed value: well-formed http or https endpoint string<br>Default: `null` |
-| **Username**                    | Required for PI server endpoint  | `string`    | Basic authentication to the PI Web API OMF endpoint <br><br>_PI server:_<br>Allowed value: any string<br>Default: `null`<br>**Note:** If your username contains a backslash, you must add an escape character, for example, type `OilCompany\TestUser` as `OilCompany\\TestUser`.|
-| **Password**                    | Required for PI server endpoint  | `string`    | Basic authentication to the PI Web API OMF endpoint <br><br>_PI server:_<br>Allowed value: any string or `{{<secretId>}}` (see [Reference Secrets](xref:ReferenceSecrets))<br>Default: `null`  |
+| **Username**                    | Optional for PI server endpoint  | `string`    | Basic authentication to the PI Web API OMF endpoint <br><br>_PI server:_<br>Allowed value: any string<br>Default: `null`<br>**Note:** If your username contains a backslash, you must add an escape character, for example, type `OilCompany\TestUser` as `OilCompany\\TestUser`.<br> **Note:** If neither Username nor ClientID is supplied, it will use Negotiation instead (i.e. Kerberos, NTLM)|
+| **Password**                    | Optional for PI server endpoint  | `string`    | Basic authentication to the PI Web API OMF endpoint <br><br>_PI server:_<br>Allowed value: any string or `{{<secretId>}}` (see [Reference Secrets](xref:ReferenceSecrets))<br>Default: `null`  |
 | **ClientId**                    | Required for OCS endpoint | `string`    | Authentication with the OCS OMF endpoint <br><br>Allowed value: any string, can be null if the endpoint URL schema is `HTTP`<br>Default: `null`|
 | **ClientSecret**                | Required for OCS endpoint | `string`    | Authentication with the OCS OMF endpoint <br><br>Allowed value: any string or `{{<secretId>}}` (see [Reference Secrets](xref:ReferenceSecrets)); can be null if the endpoint URL schema is `HTTP`<br>Default: `null`|
 | **DebugExpiration**             | Optional                  | string    | Enables logging of detailed information to disk for each outbound HTTP request pertaining to the egress endpoint. The value represents the date and time this detailed information should stop being saved. Examples of valid strings representing date and time:  UTC: `yyyy-mm-ddThh:mm:ssZ`, Local: `yyyy-mm-ddThh:mm:ss`. For more information, see [Egress debug logging](xref:TroubleshootTheAdapter#egress-debug-logging).<br><br>Default: `null`|
@@ -125,6 +125,17 @@ See [Reference Secrets](xref:ReferenceSecrets) for more information on how to us
      "Endpoint": "https://<pi web api server>:<port>/piwebapi/omf/",
      "UserName": "<username>",
      "Password": "{{<secretId>}}"
+}]
+```
+
+### Egress data to PI Web API using negotiate
+
+See [Reference Secrets](xref:ReferenceSecrets) for more information on how to use a secret Id.
+
+```json
+[{
+     "Id": "PI Web API",
+     "Endpoint": "https://<pi web api server>:<port>/piwebapi/omf/"
 }]
 ```
 
