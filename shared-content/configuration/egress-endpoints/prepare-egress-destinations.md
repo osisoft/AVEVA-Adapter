@@ -30,7 +30,7 @@ To prepare a PI Server to receive OMF messages from the adapter, a PI Web API OM
 
     - The account used in an egress configuration needs permissions to create AF elements, element templates, and PI points.
 
-2. Configure PI Web API to use *Basic* authentication.
+2. Configure PI Web API to use *Basic* and/or *Kerberos* authentication.
 
  For complete steps, as well as best practices and recommendations, see the following topic in the PI Web API User Guide: [Authentication methods](https://docs.osisoft.com/bundle/pi-web-api/page/authentication-methods.html).
 
