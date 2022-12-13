@@ -25,7 +25,7 @@ Complete the procedure corresponding to your specific operating system to uninst
     <!-- PRERELEASE REMINDER: Customize for {adapter-name}. Example:BACnet, EventHubs, StructuredDataFiles, etc -->
 
     ```bash
-    sudo apt remove pi.adapter.{adapter-name} 
+    sudo apt remove aveva.adapter.{adapter-name} 
     ```
 
 2. Optional: To delete data, configuration, and log files, run the following command:
