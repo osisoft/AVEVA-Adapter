@@ -88,6 +88,8 @@ The following is an example of a complete client failover configuration.
 
 **Note:** You can only register the adapter to a single failover endpoint by providing one client failover configuration. Additional configuration entries will be rejected.
 
+**Note:** When On Demand history recovery is required a new AVEVA Adapter instance should be configured to perform the operation. It isn't recommended to use on-demand history recovery on an Adapter instance that participates in a failover pair. 
+
 ## Query current failover state
 
 You can query the current failover state with the adapter's diagnostics. Follow the instruction below to query the current failover state:
