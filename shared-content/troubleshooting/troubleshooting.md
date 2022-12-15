@@ -4,7 +4,7 @@ uid: TroubleshootTheAdapter
 
 # Troubleshooting
 
-PI adapters provide features for troubleshooting issues related to connectivity, data flow, and configuration. Resources include adapter logs and the Wireshark troubleshooting tool . If you are still unable to resolve issues or need additional guidance, contact OSIsoft Technical Support through the [OSIsoft Customer Portal](https://my.osisoft.com/).
+AVEVA adapters provide features for troubleshooting issues related to connectivity, data flow, and configuration. Resources include adapter logs and the Wireshark troubleshooting tool . If you are still unable to resolve issues or need additional guidance, contact OSIsoft Technical Support through the [OSIsoft Customer Portal](https://my.osisoft.com/).
 
 **Note:** Make sure to also check the troubleshooting information specific to your adapter in this user guide.
 
@@ -92,7 +92,7 @@ Perform the following steps to see all established TCP sessions in Linux:
 
 ## Egress debug logging
 
-Perform the following steps to enable debugging and to troubleshoot issues between the PI Adapter and the egress destination:
+Perform the following steps to enable debugging and to troubleshoot issues between the AVEVA Adapter and the egress destination:
 
 1. Set the appropriate time value for the **DebugExpiration** property in the egress configuration.
    **Note:** To disable debugging, set the **DebugExpiration** property to `null`.
