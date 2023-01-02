@@ -13,6 +13,8 @@ Using client failover, you can do the following:
 - Perform runtime failover parameter changes such as the failover mode and failover timeout.
 - Query the current failover state including the failover role, last data process time, failover status and adapter state.
 
+**Note:** Failover group will be created by the adapter in case it does not exist on the failover endpoint.
+
 ## Configure client failover
 
 Complete the following steps to configure client failover.
@@ -41,19 +43,20 @@ On successful execution, the client failover change takes effect immediately dur
 
 | Parameter | Required | Type | Description
 ---------|---------|----------|---------
-| **Id** | Optional | `string` | The Id of the client failover configuration <br><br> **Notes:**<br>&bull; You cannot configure multiple client failover configurations. In order to create a new failover configuration, you need to delete the existing one.<br>&bull; Including an `id` is optional. If you do not include one, the adapter automatically generates one. <br><br>Allowed value: any string identifier<br>Default value: new GUID |
-| **FailoverGroupId** | Required | `string` | The ID of the failover group to register the adapter instance <br><br>Allowed value: any string identifier<br>Default value: `null` |
-| **Name** | Optional | `string` | The friendly name of the client failover configuration <br><br>Allowed value: any string value<br>Default value: `null` |
-| **Description** | Optional | `string`| The description of the client failover configuration <br><br>Allowed value: any string value<br>Default value: `null` |
-| **FailoverTimeout** | Optional | `datetime` | The max time for the adapter instance to wait for responses from the failover endpoint before timing out. <br><br>Allowed value: a string representation of date time using `hh:mm:ss` <br>Default value: `00:01:00` |
-| **Mode** | Required | `string` | The failover mode of the registered adapter. <br><br>Allowed value: `Hot`, `Warm`, `Cold`, `None` <br>Default value: `None` <br>For more information, see [Failover Modes](#failover-modes). |
-| **Endpoint** | Required | `string` | Destination that support client failover registration. Supported destinations include OCS and PI Server.<br><br>Allowed value: well-formed http or https endpoint string<br>Default: `null` |
-| **UserName** | Required for PI server endpoint | `string` | Basic authentication to the PI Web API OMF endpoint <br><br>Allowed value: any string<br>Default: `null`<br><br>**Note:** If your username contains a backslash, you must add an escape character, for example, type `OilCompany\TestUser` as `OilCompany\\TestUser`. |
-| **Password** | Required for PI server endpoint | `string` | Basic authentication to the PI Web API OMF endpoint <br><br>Allowed value: any string<br>Default: `null` |
-| **ClientId** | Required for OCS endpoint | `string` | Authentication with the OCS OMF endpoint <br><br>Allowed value: any string, can be null if the endpoint URL schema is `HTTP`<br>Default: `null` |
-| **ClientSecret** | Required for OCS endpoint | `string`| Authentication with the OCS OMF endpoint <br><br>Allowed value: any string, can be null if the endpoint URL schema is `HTTP`<br>Default: `null` |
-| **TokenEndpoint** | Optional for OCS endpoint | `string`| Retrieves an OCS token from an alternative endpoint <br><br>Allowed value: well-formed http or https endpoint string <br>Default value: `null` |
-| **ValidateEndpointCertificate** | Optional | `bool`| Disables verification of destination certificate.<br><br>**Note:** Only use for testing with self-signed certificates. <br><br>Allowed value: `true` or `false`<br>Default value: `true` |
+| **FailoverGroupId** | Required | `string` | The ID of the failover group to register the adapter instance in <br><br>Allowed value: any string identifier<br>Default value: `null` |
+| **Name** | Optional | `string` | The friendly name of the failover group <br><br>Allowed value: any string value<br>Default value: `null` |
+| **Description** | Optional | `string`| The description of the failover group <br><br>Allowed value: any string value<br>Default value: `null` |
+| **FailoverTimeout** | Required | `datetime` | The failover timeout value of the failover group. This defines how frequently the adapter will send a heartbeat to the failover endpoint. <br><br>Allowed value: a string representation of date time using `hh:mm:ss` <br>|
+| **Mode** | Required | `string` | The failover mode of the registered adapter. <br><br>Allowed value: `Hot`, `Warm`, `Cold` <br> For more information, see [Failover Modes](#failover-modes). |
+| **Endpoint** | Required | `string` | Destination that support client failover registration. Supported destinations include ADH and on-premise Failover Service<br><br>Allowed value: well-formed http or https endpoint string<br>Default: `null` |
+| **UserName** | Optional | `string` | Basic authentication to on-premise Failover Service endpoint <br><br>Allowed value: any string<br>Default: `null`<br><br>**Note:** If your username contains a backslash, you must add an escape character, for example, type `OilCompany\TestUser` as `OilCompany\\TestUser`. |
+| **Password** | Optional | `string` | Basic authentication to on-premise Failover Service endpoint <br><br>Allowed value: any string or `{{<secretId>}}` (see [Reference Secrets](xref:ReferenceSecrets))<br>Default: `null` |
+| **ClientId** | Required for ADH endpoint | `string` | Authentication with the ADH endpoint <br><br>Allowed value: any string, can be null if the endpoint URL schema is `HTTP`<br>Default: `null` |
+| **ClientSecret** | Required for ADH endpoint | `string`| Authentication with the ADH endpoint <br><br>Allowed value: any string or `{{<secretId>}}` (see [Reference Secrets](xref:ReferenceSecrets))<br>Default: `null` |
+| **TokenEndpoint** | Optional | `string`| Retrieves a bearer token from an alternative endpoint <br><br>Allowed value: well-formed http or https endpoint string <br>Default value: `null` |
+| **ValidateEndpointCertificate** | Optional | `bool`| Disables verification of the server certificate.<br><br>**Note:** Only use for testing with self-signed certificates. <br><br>Allowed value: `true` or `false`<br>Default value: `true` |
+
+**Note:** Failover group name, description and failover timeout cannot be changed once created. To change it the group must be deleted on the failover service side.
 
 ### Failover Modes
 
@@ -64,7 +67,6 @@ The failover behavior outlined below corresponds to adapter instances with the '
 | **Hot** | When in `Hot` failover mode, configured components for the `Secondary` adapter instance start and collect data from the data source. Collected data is buffered into the failover-specific buffer folder until the adapter instance in the `Primary` role has finished sending data to the destination. Data from the `Secondary` adapter instance is not egressed to the data endpoint(s). |
 | **Warm** | When in `Warm` failover mode, configured components for the `Secondary` adapter instance start and connect to the data source but do not collect data from the data source. Since data is not being collected, data is not buffered nor egressed to the data endpoint(s). |
 | **Cold** | When in `Cold` failover mode, none of the configured components for the `Secondary` adapter instance start. The adapter does not connect to nor collect data from the data source, and data is not egressed to the data endpoint(s). |
-| **None** | When in `None` failover mode, configured components start, collect, and egress data from the data source. |
 
 ## Example client failover configuration
 
@@ -81,12 +83,10 @@ The following is an example of a complete client failover configuration.
    "Endpoint": "http://test-endpoint.com",
    "UserName": "UserName1",
    "Password": "Password1",
-   "TokenEndpoint": "http://token.com",
+   "TokenEndpoint": null,
    "ValidateEndpointCertificate": false
  }
 ```
-
-**Note:** You can only register the adapter to a single failover endpoint by providing one client failover configuration. Additional configuration entries will be rejected.
 
 **Note:** When On Demand history recovery is required a new AVEVA Adapter instance should be configured to perform the operation. It isn't recommended to use On Demand history recovery on an Adapter instance that participates in a failover pair. 
 
@@ -116,7 +116,7 @@ The current failover `Role` is determined by the client failover endpoint. The c
 | **Primary** | When the adapter is in the `Primary` role, configured components start, collect, and egress data from the data source to the data endpoint(s). <br><br>**Note:** While the adapter is in the `Primary` role, a change in `Mode` in the client failover configuration does not affect adapter behavior and data will continue to be egressed. |
 | **Secondary** | When the adapter is in the `Secondary` role, adapter behavior varies based on the failover mode. For more information, see [Failover Modes](#failover-modes). |
 
-When an adapter client failover configuration registers with an endpoint and it is the only adapter registered in the group, it becomes the `Primary` adapter instance. If the adapter is not the only adapter registered in the client failover group, the `Primary` adapter instance is that with the highest `FailoverStatus` value. For more information on `FailoverStatus`, see [Failover Status](xref:FailoverStatus).
+When an adapter with a valid client failover configuration registers with an endpoint and it is the only adapter registered in the group, it becomes the `Primary` adapter instance. If the adapter is not the only adapter registered in the client failover group, the `Primary` adapter instance is that with the highest `FailoverStatus` value. For more information on `FailoverStatus`, see [Failover Status](xref:FailoverStatus).
 
 ## Health
 
@@ -126,8 +126,9 @@ If the adapter has health endpoints configured, the client failover configuratio
 
 | Relative URL | HTTP verb | Action |
 | ------------ | --------- | ------ |
-| api/v1/configuration/System/ClientFailover      | GET       | Gets the client failover configurations |
-| api/v1/configuration/System/ClientFailover      | DELETE    | Deletes the configured client failover
-| api/v1/configuration/System/ClientFailover      | POST      | Adds a client failover configuration. Fails if the client failover configuration already exists |
+| api/v1/configuration/System/ClientFailover      | GET       | Gets the client failover configuration |
+| api/v1/configuration/System/ClientFailover      | DELETE    | Deletes the client failover configuration
+| api/v1/configuration/System/ClientFailover      | POST      | Creates a client failover configuration. Fails if the client failover configuration already exists |
+| api/v1/configuration/System/ClientFailover      | PATCH      | Partially updates existing client failover configuration |
 | api/v1/configuration/System/ClientFailover      | PUT       | Replaces the existing client failover configuration |
 | api/v1/diagnostics/FailoverState                | GET     | Get the current failover state |
