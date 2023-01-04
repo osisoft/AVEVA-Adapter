@@ -54,7 +54,7 @@ On successful execution, the client failover change takes effect immediately dur
 | **ClientId** | Required for ADH endpoint | `string` | The clientId used for Bearer authentication to ADH endpoint <br><br>Allowed value: any string, can be null if the endpoint URL schema is `HTTP`<br>Default: `null` |
 | **ClientSecret** | Required for ADH endpoint | `string`| The clientSecret used for Bearer authentication to ADH endpoint <br><br>Allowed value: any string or `{{<secretId>}}` (see [Reference Secrets](xref:ReferenceSecrets))<br>Default: `null` |
 | **TokenEndpoint** | Optional | `string`| An optional token endpoint where the adapter retrieves a bearer token. When null or not specified the adapter uses a well-known Open ID URL to retrieve it. <br><br>Allowed value: well-formed http or https endpoint string <br>Default value: `null` |
-| **ValidateEndpointCertificate** | Optional | `boolean`| An optional Boolean flag, when set to false, adapter will disable the verification of the server certificate.<br><br>**Note:** AVEVA strongly recommends disabling server certificate validation for testing purposes only. <br><br>Allowed value: `true` or `false`<br>Default value: `true` |
+| **ValidateEndpointCertificate** | Optional | `boolean`| An optional Boolean flag, when set to false, adapter will disable the verification of the server certificate.<br><br>**Note:** AVEVA strongly recommends only disabling server certificate validation for testing purposes. <br><br>Allowed value: `true` or `false`<br>Default value: `true` |
 
 **Note:** Failover group name, description and failover timeout cannot be changed once created. To change it the group must be deleted on the failover service side.
 
