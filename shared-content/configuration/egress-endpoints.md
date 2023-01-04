@@ -6,14 +6,14 @@ uid: EgressEndpointsConfiguration
 
 PI adapters collect time series data, which  they can send to a permanent data store (endpoint). This operation is called data egress. The following endpoints are available for data egress:
 
-- OSIsoft Cloud Services (OCS)
+- AVEVA Data Hub (ADH)
 - PI servers through PI Web API
 
 For long term storage and analysis, you can configure any adapter to send time series data to one or several of these endpoints in any combination. An egress endpoint is comprised of the properties specified under [Egress endpoint parameters](#egress-endpoint-parameters).
 
-Data egress to a PI server creates a PI point in the PI adapter configuration. Data egress to OCS creates a stream in the PI adapter configuration.
+Data egress to a PI server creates a PI point in the PI adapter configuration. Data egress to ADH creates a stream in the PI adapter configuration.
 
-The name of the PI point or OCS stream is a combination of the StreamIdPrefix specified in the adapter data source configuration and the StreamId specified in the adapter data selection configuration.
+The name of the PI point or ADH stream is a combination of the StreamIdPrefix specified in the adapter data source configuration and the StreamId specified in the adapter data selection configuration.
 
 ## Configure egress endpoints
 
@@ -60,15 +60,15 @@ The following parameters are available for configuring egress endpoints:
 
 | Parameter                       | Required                  | Type      | Description                                        |
 |---------------------------------|---------------------------|-----------|-------------|
-| **Id**                          | Optional                  | `string`    | Unique identifier<br><br>Allowed value: any string identifier<br>Default value: new GUID |
-| **Endpoint**                    | Required                  | `string`    | Destination that accepts OMF v1.2 messages. Supported destinations include OCS and PI Server.<br><br>Allowed value: well-formed http or https endpoint string<br>Default: `null` |
-| **Username**                    | Required for PI server endpoint  | `string`    | Basic authentication to the PI Web API OMF endpoint <br><br>_PI server:_<br>Allowed value: any string<br>Default: `null`<br>**Note:** If your username contains a backslash, you must add an escape character, for example, type `OilCompany\TestUser` as `OilCompany\\TestUser`.|
-| **Password**                    | Required for PI server endpoint  | `string`    | Basic authentication to the PI Web API OMF endpoint <br><br>_PI server:_<br>Allowed value: any string or `{{<secretId>}}` (see [Reference Secrets](xref:ReferenceSecrets))<br>Default: `null`  |
-| **ClientId**                    | Required for OCS endpoint | `string`    | Authentication with the OCS OMF endpoint <br><br>Allowed value: any string, can be null if the endpoint URL schema is `HTTP`<br>Default: `null`|
-| **ClientSecret**                | Required for OCS endpoint | `string`    | Authentication with the OCS OMF endpoint <br><br>Allowed value: any string or `{{<secretId>}}` (see [Reference Secrets](xref:ReferenceSecrets)); can be null if the endpoint URL schema is `HTTP`<br>Default: `null`|
-| **DebugExpiration**             | Optional                  | string    | Enables logging of detailed information to disk for each outbound HTTP request pertaining to the egress endpoint. The value represents the date and time this detailed information should stop being saved. Examples of valid strings representing date and time:  UTC: `yyyy-mm-ddThh:mm:ssZ`, Local: `yyyy-mm-ddThh:mm:ss`. For more information, see [Egress debug logging](xref:TroubleshootTheAdapter#egress-debug-logging).<br><br>Default: `null`|
-| **TokenEndpoint**               | Optional for OCS endpoint | `string`    | Retrieves an OCS token from an alternative endpoint <br><br>Allowed value: well-formed http or https endpoint string <br>Default value: `null` |
-| **ValidateEndpointCertificate** | Optional                  | `boolean`   | Disables verification of destination certificate. **Note:** Only use for testing with self-signed certificates. <br><br>Allowed value: `true` or `false`<br>Default value: `true` |
+| **Id**                          | Optional                  | `string`    | A unique identifier of the endpoint configuration <br><br>Allowed value: any string identifier<br>Default value: new GUID |
+| **Endpoint**                    | Required                  | `string`    | The URL of a destination that accepts OMF v1.2 messages. Supported destinations include ADH and PI Server <br><br>Allowed value: well-formed http or https endpoint string<br>Default: `null` |
+| **Username**                    | Optional  | `string`    | The username used for Basic authentication to the PI Web API OMF endpoint <br><br>_PI server:_<br>Allowed value: any string<br>Default: `null`<br>**Note:** If your username contains a backslash, you must add an escape character, for example, type `OilCompany\TestUser` as `OilCompany\\TestUser`.|
+| **Password**                    | Optional  | `string`    | The password used for Basic authentication to the PI Web API OMF endpoint <br><br>_PI server:_<br>Allowed value: any string or `{{<secretId>}}` (see [Reference Secrets](xref:ReferenceSecrets))<br>Default: `null`  |
+| **ClientId**                    | Required for ADH endpoint | `string`    | The clientId used for Bearer authentication to ADH endpoint <br><br>Allowed value: any string, can be null if the endpoint URL schema is `HTTP`<br>Default: `null`|
+| **ClientSecret**                | Required for ADH endpoint | `string`    | The clientSecret used for Bearer authentication to ADH endpoint <br><br>Allowed value: any string or `{{<secretId>}}` (see [Reference Secrets](xref:ReferenceSecrets))<br>Default: `null`|
+| **DebugExpiration**             | Optional   | string    | An optional string that enables logging of detailed information to disk for each outbound HTTP request pertaining to the egress endpoint. The value represents the date and time this detailed information should stop being saved. Examples of valid strings representing date and time:  UTC: `yyyy-mm-ddThh:mm:ssZ`, Local: `yyyy-mm-ddThh:mm:ss`. For more information, see [Egress debug logging](xref:TroubleshootTheAdapter#egress-debug-logging).<br><br>Default: `null`|
+| **TokenEndpoint**               | Optional | `string`    | An optional token endpoint where the adapter retrieves a bearer token. When null or not specified the adapter uses a well-known Open ID URL to retrieve it. <br><br>Allowed value: well-formed http or https endpoint string <br>Default value: `null` |
+| **ValidateEndpointCertificate** | Optional    | `boolean`   | An optional Boolean flag, when set to false, adapter will disable the verification of the server certificate.<br><br>**Note:** AVEVA strongly recommends disabling server certificate validation for testing purposes only. <br><br>Allowed value: `true` or `false`<br>Default value: `true` |
 
 ### Special characters encoding
 
@@ -93,12 +93,12 @@ The adapter encodes special characters used in the data selection **StreamId** p
 
 The following examples are valid egress configurations:
 
-### Egress data to OCS
+### Egress data to ADH
 
 ```json
 [{
-     "Id": "OCS",
-     "Endpoint": "https://<OCS OMF endpoint>",
+     "Id": "ADH",
+     "Endpoint": "https://<ADH OMF endpoint>",
      "ClientId": "<clientid>",
      "ClientSecret": "<clientsecret>"
 }]
