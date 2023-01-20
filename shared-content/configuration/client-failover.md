@@ -102,21 +102,21 @@ The following is an example of failover state returned from the adapter:
 {
     "Role": "Primary",
     "LastDataProcessedTime": "2021-01-01T00:00:00",
-    "FailoverStatus": "95",
+    "FailoverScore": "95",
     "AdapterState": "Running"
 }
 ```
 
 ### Failover Role 
 
-The current failover `Role` is determined by the client failover endpoint. The current failover role is visible by querying the failover state, or by looking at the failover status diagnostics streams. For more information on failover status, see [FailoverStatus](xref:FailoverStatus).
+The current failover `Role` is determined by the client failover endpoint. The current failover role is visible by querying the failover state, or by looking at the failover status diagnostics streams. For more information on failover status, see [Failover Status](xref:FailoverStatus).
 
 | Role | Description
 ---------|---------
 | **Primary** | When the adapter is in the `Primary` role, configured components start, collect, and egress data from the data source to the data endpoint(s). <br><br>**Note:** While the adapter is in the `Primary` role, a change in `Mode` in the client failover configuration does not affect adapter behavior and data will continue to be egressed. |
 | **Secondary** | When the adapter is in the `Secondary` role, adapter behavior varies based on the failover mode. For more information, see [Failover Modes](#failover-modes). |
 
-When an adapter with a valid client failover configuration registers with an endpoint and it is the only adapter registered in the group, it becomes the `Primary` adapter instance. If the adapter is not the only adapter registered in the client failover group, the `Primary` adapter instance is that with the highest `FailoverStatus` value. For more information on `FailoverStatus`, see [Failover Status](xref:FailoverStatus).
+When an adapter with a valid client failover configuration registers with an endpoint and it is the only adapter registered in the group, it becomes the `Primary` adapter instance. If the adapter is not the only adapter registered in the client failover group, the `Primary` adapter instance is that with the highest `FailoverScore` value. For more information on `FailoverScore`, see [Failover Status](xref:FailoverStatus).
 
 ## Health
 
