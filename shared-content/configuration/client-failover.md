@@ -13,7 +13,7 @@ Using client failover, you can do the following:
 - Perform runtime failover parameter changes such as the failover mode and failover timeout.
 - Query the current failover state including the failover role, last data process time, failover status and adapter state.
 
-**Note:** Failover group will be created by the adapter in case it does not exist on the failover endpoint.
+**Note:** Failover group will be created by the adapter if it does not exist on the failover endpoint.
 
 ## Configure client failover
 
@@ -46,15 +46,15 @@ On successful execution, the client failover change takes effect immediately dur
 | **FailoverGroupId** | Required | `string` | The ID of the failover group to register the adapter instance in <br><br>Allowed value: any string identifier<br>Default value: `null` |
 | **Name** | Optional | `string` | The friendly name of the failover group <br><br>Allowed value: any string value<br>Default value: `null` |
 | **Description** | Optional | `string`| The description of the failover group <br><br>Allowed value: any string value<br>Default value: `null` |
-| **FailoverTimeout** | Required | `datetime` | The failover timeout value of the failover group. This defines how frequently the adapter will send a heartbeat to the failover endpoint. <br><br>Allowed value: a string representation of date time using `hh:mm:ss` <br>|
-| **Mode** | Required | `string` | The failover mode of the registered adapter. <br><br>Allowed value: `Hot`, `Warm`, `Cold` <br> For more information, see [Failover Modes](#failover-modes). |
-| **Endpoint** | Required | `string` | Destination that support client failover registration. Supported destinations include ADH and on-premise Failover Service<br><br>Allowed value: well-formed http or https endpoint string<br>Default: `null` |
-| **UserName** | Optional | `string` | Basic authentication to on-premise Failover Service endpoint <br><br>Allowed value: any string<br>Default: `null`<br><br>**Note:** If your username contains a backslash, you must add an escape character, for example, type `OilCompany\TestUser` as `OilCompany\\TestUser`. |
-| **Password** | Optional | `string` | Basic authentication to on-premise Failover Service endpoint <br><br>Allowed value: any string or `{{<secretId>}}` (see [Reference Secrets](xref:ReferenceSecrets))<br>Default: `null` |
-| **ClientId** | Required for ADH endpoint | `string` | Authentication with the ADH endpoint <br><br>Allowed value: any string, can be null if the endpoint URL schema is `HTTP`<br>Default: `null` |
-| **ClientSecret** | Required for ADH endpoint | `string`| Authentication with the ADH endpoint <br><br>Allowed value: any string or `{{<secretId>}}` (see [Reference Secrets](xref:ReferenceSecrets))<br>Default: `null` |
-| **TokenEndpoint** | Optional | `string`| Retrieves a bearer token from an alternative endpoint <br><br>Allowed value: well-formed http or https endpoint string <br>Default value: `null` |
-| **ValidateEndpointCertificate** | Optional | `bool`| Disables verification of the server certificate.<br><br>**Note:** Only use for testing with self-signed certificates. <br><br>Allowed value: `true` or `false`<br>Default value: `true` |
+| **FailoverTimeout** | Required | `datetime` | The failover timeout value of the failover group. This defines how frequently the adapter will send a heartbeat to the failover endpoint. The heartbeat will be sent at every FailoverTimeout / 2 interval <br><br>Allowed value: a string representation of date time using `hh:mm:ss` <br>|
+| **Mode** | Required | `string` | The failover mode of the registered adapter <br><br>Allowed value: `Hot`, `Warm`, `Cold` <br> For more information, see [Failover Modes](#failover-modes). |
+| **Endpoint** | Required | `string` | The URL of a destination that supports client failover registration. Supported destinations include ADH and on-premise Failover Service <br><br>Allowed value: well-formed http or https endpoint string<br>Default: `null` |
+| **UserName** | Optional | `string` | The username used for Basic authentication to on-premise Failover Service endpoint <br><br>Allowed value: any string<br>Default: `null`<br><br>**Note:** If your username contains a backslash, you must add an escape character, for example, type `OilCompany\TestUser` as `OilCompany\\TestUser`. |
+| **Password** | Optional | `string` | The password used for Basic authentication to on-premise Failover Service endpoint <br><br>Allowed value: any string or `{{<secretId>}}` (see [Reference Secrets](xref:ReferenceSecrets))<br>Default: `null` |
+| **ClientId** | Required for ADH endpoint | `string` | The clientId used for Bearer authentication to ADH endpoint <br><br>Allowed value: any string, can be null if the endpoint URL schema is `HTTP`<br>Default: `null` |
+| **ClientSecret** | Required for ADH endpoint | `string`| The clientSecret used for Bearer authentication to ADH endpoint <br><br>Allowed value: any string or `{{<secretId>}}` (see [Reference Secrets](xref:ReferenceSecrets))<br>Default: `null` |
+| **TokenEndpoint** | Optional | `string`| An optional token endpoint where the adapter retrieves a bearer token. When null or not specified the adapter uses a well-known Open ID URL to retrieve it <br><br>Allowed value: well-formed http or https endpoint string <br>Default value: `null` |
+| **ValidateEndpointCertificate** | Optional | `boolean`| An optional Boolean flag where, when set to false, the adapter will disable the verification of the server certificate <br><br>**Note:** AVEVA strongly recommends only disabling server certificate validation for testing purposes. <br><br>Allowed value: `true` or `false`<br>Default value: `true` |
 
 **Note:** Failover group name, description and failover timeout cannot be changed once created. To change it the group must be deleted on the failover service side.
 
@@ -84,7 +84,7 @@ The following is an example of a complete client failover configuration.
    "UserName": "UserName1",
    "Password": "Password1",
    "TokenEndpoint": null,
-   "ValidateEndpointCertificate": false
+   "ValidateEndpointCertificate": true
  }
 ```
 
