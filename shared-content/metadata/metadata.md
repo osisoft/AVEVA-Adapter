@@ -24,4 +24,4 @@ The adapter may also send its own stream metadata not including health and diagn
 **Note:**
 
 - Metadata is only sent for streams created by the ingress components.
-- Currently, the only endpoint that persists sent metadata is AVEVA Data Hub (AVEVA Data Hub).
+- Currently, the only endpoint that persists sent metadata is AVEVA Data Hub (ADH).

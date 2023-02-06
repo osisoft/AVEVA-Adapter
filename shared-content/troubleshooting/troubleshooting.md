@@ -14,10 +14,10 @@ Messages from the System and OmfEgress logs provide information on the status of
 
 Perform the following steps to view the System and OmfEgress logs:
 
-1. Navigate to the logs directory:<br>
-    Windows: `%ProgramData%\OSIsoft\Adapters\<AdapterName>\Logs`<br>
-    Linux: `/usr/share/OSIsoft/Adapters/<AdapterName>/Logs`.<br><br>
-    **Example:**<br> A successful connection to a PI Web API egress endpoint displays the following message in the OmfEgress log:
+1. Navigate to the logs directory: 
+    Windows: `%ProgramData%\OSIsoft\Adapters\<AdapterName>\Logs` 
+    Linux: `/usr/share/OSIsoft/Adapters/<AdapterName>/Logs`.  
+    **Example:**  A successful connection to a PI Web API egress endpoint displays the following message in the OmfEgress log:
 
     ```json
     2020-11-02 11:08:51.870 -06:00 [Information] Data will be sent to the following OMF endpoint: 

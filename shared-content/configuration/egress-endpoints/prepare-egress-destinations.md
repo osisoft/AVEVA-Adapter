@@ -4,7 +4,7 @@ uid: PrepareEgressDestinations
 
 # Prepare egress destinations
 
-AVEVA Data Hub and PI Server destinations may require additional configuration to receive OMF messages.
+AVEVA Data Hub and AVEVA Server destinations may require additional configuration to receive OMF messages.
 
 ## AVEVA Data Hub
 
@@ -20,9 +20,9 @@ To prepare OCS to receive OMF messages from the adapter, create an OMF connectio
 
    The **OMF Endpoint** URL for the connection will be used as the egress configuration *Endpoint* property.
 
-## PI Server
+## AVEVA Server
 
-To prepare a PI Server to receive OMF messages from the adapter, a PI Web API OMF endpoint must be available. Complete the following steps:
+To prepare a AVEVA Server to receive OMF messages from the adapter, a PI Web API OMF endpoint must be available. Complete the following steps:
 
 1. Install PI Web API and enable the **Open Message Format (OMF) Services** feature.
 
