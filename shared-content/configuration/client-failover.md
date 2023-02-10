@@ -74,7 +74,6 @@ The following is an example of a complete client failover configuration.
 
 ```json
  {
-   "Id": "FailoverConfiguration1",
    "FailoverGroupId": "FailoverGroup1",
    "Name": "NameExample",
    "Description": "DescriptionExample",
