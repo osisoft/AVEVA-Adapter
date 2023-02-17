@@ -4,7 +4,7 @@ uid: HealthEndpointConfiguration
 
 # Health endpoints
 
-You can configure PI adapters to produce and store health data at a designated health endpoint. You can use health data to ensure that your adapters are running properly and that data flows to the configured OMF endpoints.
+You can configure AVEVA Adapters to produce and store health data at a designated health endpoint. You can use health data to ensure that your adapters are running properly and that data flows to the configured OMF endpoints.
 
 For more information about adapter health, see [Adapter health](xref:AdapterHealth).
 
@@ -102,6 +102,17 @@ See [Reference Secrets](xref:ReferenceSecrets) for more information on how to us
 }]
 ```
 
+### PI Web API endpoint using negotiate
+
+See [Reference Secrets](xref:ReferenceSecrets) for more information on how to use a secret Id.
+
+```json
+[{
+     "Id": "PI Web API",
+     "Endpoint": "https://<pi web api server>:<port>/piwebapi/omf/"
+}]
+```
+
 **Note:** When you use an adapter with a PI Web API health endpoint, the AF structure is required. If the elements are deleted, the adapter recreates the elements; if the account used to authenticate to the PI Web API has its permissions removed on the AF Server, the adapter retries sending health data to the PI Web API until the permissions are restored.
 
 ## REST URLs
@@ -112,7 +123,7 @@ See [Reference Secrets](xref:ReferenceSecrets) for more information on how to us
 | api/v1/configuration/system/healthEndpoints      | DELETE    | Deletes all configured health endpoints |
 | api/v1/configuration/system/healthEndpoints      | POST      | Adds an array of health endpoints or a single endpoint. Fails if any endpoint already exists |
 | api/v1/configuration/system/healthEndpoints      | PUT       | Replaces all health endpoints. **Note:** Requires an array of endpoints |
-| api/v1/configuration/system/healthEndpoints     | PATCH     | Allows partial updating of configured health endpoints<br>**Note:** The request must be an array containing one or more health endpoints. Each health endpoint in the array must include its *Id*.  |
+| api/v1/configuration/system/healthEndpoints     | PATCH     | Allows partial updating of configured health endpoints **Note:** The request must be an array containing one or more health endpoints. Each health endpoint in the array must include its *Id*.  |
 | api/v1/configuration/system/healthEndpoints/*Id* | GET       | Gets configured health endpoint by *Id* |
 | api/v1/configuration/system/healthEndpoints/*Id*| DELETE     | Deletes configured health endpoint by *Id* |
 | api/v1/configuration/system/healthEndpoints/*Id* | PUT       | Updates or creates a new health endpoint with the specified *Id* |
