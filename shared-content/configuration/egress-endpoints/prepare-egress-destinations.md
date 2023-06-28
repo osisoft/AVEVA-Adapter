@@ -8,7 +8,7 @@ AVEVA Data Hub and AVEVA Server destinations may require additional configuratio
 
 ## AVEVA Data Hub
 
-To prepare OCS to receive OMF messages from the adapter, create an OMF connection in AVEVA Data Hub. Creating an OMF connection results in an available OMF endpoint that can be used by the adapter egress mechanism. Complete the following steps to create an OMF connection:
+To prepare ADH to receive OMF messages from the adapter, create an OMF connection in AVEVA Data Hub. Creating an OMF connection results in an available OMF endpoint that can be used by the adapter egress mechanism. Complete the following steps to create an OMF connection:
 
 1. Create a **Client**.
 
