@@ -18,3 +18,14 @@ Alternatively, you can use tar.gz files with binaries to build your own custom i
 ## PI Web API compatibility
 
 This version of [!include[product](../_includes/inline/product-name.md)] is compatible with PI Web API 2021 and later. 
+
+## Performance Metrics
+
+A wide range of Linux and Windows based devices support AVEVA Adapters, from small single board computers to large servers. Stream count and event throughput vary based on the device's hardware specification. 
+
+Performance guidelines for AVEVA Adapters when running on typical small and large devices are as follows:
+
+- Small Devices - 1 Core CPU, 512 MB RAM. 1k events/sec, 1k streams total
+- Large Devices - 2 Core CPU, 8 GB RAM. 20k events/sec, 20k streams total
+
+Actual performance of AVEVA Adapters vary depending on different factors, such as the performance of data source, network latency, and hardware resource consumption by other applications on the device. We recommend solid state storage on the device to improve the performance, robustness, and reliability of the AVEVA Adapter data buffering mechanism. 
