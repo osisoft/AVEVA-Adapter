@@ -23,9 +23,9 @@ To create a startup script for the adapter, follow the instructions below.
     ```bash
     #!/bin/sh
     if [ -z $portnum ] ; then
-        exec /AVEVA-Adapter-for-{adapter}_{version}-arm_/OSIsoft.Data.System.Host
+        exec /OpcUa_linux-arm_/OSIsoft.Data.System.Host
     else
-        exec /AVEVA-Adapter-for-{adapter}_{version}-arm_/OSIsoft.Data.System.Host --port:$portnum
+        exec /OpcUa_linux-arm_/OSIsoft.Data.System.Host --port:$portnum
     fi
     ```
 
@@ -34,9 +34,9 @@ To create a startup script for the adapter, follow the instructions below.
     ```bash
     #!/bin/sh
     if [ -z $portnum ] ; then
-        exec /AVEVA-Adapter-for-{adapter}_{version}-arm64_/OSIsoft.Data.System.Host
+        exec /OpcUa_linux-arm64_/OSIsoft.Data.System.Host
     else
-        exec /AVEVA-Adapter-for-{adapter}_{version}-arm64_/OSIsoft.Data.System.Host --port:$portnum
+        exec /OpcUa_linux-arm64_/OSIsoft.Data.System.Host --port:$portnum
     fi
     ```
 
@@ -45,9 +45,9 @@ To create a startup script for the adapter, follow the instructions below.
     ```bash
     #!/bin/sh
     if [ -z $portnum ] ; then
-        exec /AVEVA-Adapter-for-{adapter}_{version}-x64_/OSIsoft.Data.System.Host
+        exec /OpcUa_linux-x64_/OSIsoft.Data.System.Host
     else
-        exec /AVEVA-Adapter-for-{adapter}_{version}-x64_/OSIsoft.Data.System.Host --port:$portnum
+        exec /OpcUa_linux-x64_/OSIsoft.Data.System.Host --port:$portnum
     fi
     ```
 
@@ -73,7 +73,7 @@ To create a Docker container that runs the adapter, follow the instructions belo
     RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y ca-certificates libicu66 libssl1.1 curl
     COPY {adapter}dockerstart.sh /
     RUN chmod +x /{adapter}dockerstart.sh
-    ADD ./AVEVA-Adapter-for-{adapter}_{version}-arm_.tar.gz .
+    ADD ./OpcUa_linux-arm_.tar.gz .
     ENTRYPOINT ["/{adapter}dockerstart.sh"]
     ```
 
@@ -85,7 +85,7 @@ To create a Docker container that runs the adapter, follow the instructions belo
     RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y ca-certificates libicu66 libssl1.1 curl
     COPY {adapter}dockerstart.sh /
     RUN chmod +x /{adapter}dockerstart.sh
-    ADD ./AVEVA-Adapter-for-{adapter}_{version}-arm64_.tar.gz .
+    ADD ./OpcUa_linux-arm64_.tar.gz .
     ENTRYPOINT ["/{adapter}dockerstart.sh"]
     ```
     
@@ -97,7 +97,7 @@ To create a Docker container that runs the adapter, follow the instructions belo
     RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y ca-certificates libicu66 libssl1.1 curl
     COPY {adapter}dockerstart.sh /
     RUN chmod +x /{adapter}dockerstart.sh
-    ADD ./AVEVA-Adapter-for-{adapter}_{version}-x64_.tar.gz .
+    ADD ./OpcUa_linux-x64_.tar.gz .
     ENTRYPOINT ["/{adapter}dockerstart.sh"]
     ```
 
