@@ -6,7 +6,7 @@ uid: BufferingConfiguration
 
 You can configure AVEVA Adapters to buffer data egressed from the adapter to endpoints. Buffering is configured through the buffering configuration parameters in the system configuration.
 
-**Note:** OSIsoft recommends that you do not modify the default buffering location unless it is necessary. Changes to the buffering configuration parameters only take effect during adapter service startup.
+**Note:** AVEVA recommends that you do not modify the default buffering location unless it is necessary. Changes to the buffering configuration parameters only take effect during adapter service startup.
 
 ## Configure buffering
 
