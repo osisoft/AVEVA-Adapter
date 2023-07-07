@@ -10,7 +10,7 @@ AVEVA provides several ways to report issues and provide feedback on AVEVA Adapt
 
 For technical assistance with AVEVA Adapters, contact AVEVA PI Support through the [AVEVA Customer Portal](https://my.osisoft.com/). We can help you identify the problem, provide workarounds and address any concerns you may have. Remote access to your facilities may be necessary during the session.
 
-**Note:**  You must have an account set up in the [AVEVA Customer Portal](https://my.osisoft.com/) before you can open a case. If you do not have a portal account, see [How to Get a Login to AVEVA Customer Portal](https://explore.osisoft.com/myosisoft-customer-portal/how-to-get-a-login).
+**Note:**  You must have an account set up in the [AVEVA Customer Portal](https://my.osisoft.com/) before you can open a case. If you do not have a portal account, see [How to Get a Login to AVEVA Customer Portal](https://discover.aveva.com/myosisoft-customer-portal/how-to-get-a-login).
 
 Alternatively, call AVEVA PI Support at +1 510-297-5828.
 
