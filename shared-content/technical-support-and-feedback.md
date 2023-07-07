@@ -26,7 +26,7 @@ When you contact AVEVA PI Support, be prepared to provide this information:
 
 ## Product feedback
 
-To submit product feedback for AVEVA Adapters, visit the [AVEVA Adapters feedback page](https://feedback.osisoft.com/forums/930280-pi-adapters). The product team at AVEVA regularly monitors the page.
+To submit product feedback for AVEVA Adapters, visit the [AVEVA Adapters feedback page](https://feedback.aveva.com). The product team at AVEVA regularly monitors the page.
 
 ## Documentation feedback
 
