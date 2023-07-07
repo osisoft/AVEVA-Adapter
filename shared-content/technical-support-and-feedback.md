@@ -4,7 +4,7 @@ uid: TechnicalSupportAndFeedback
 
 # Technical support and feedback
 
-OSIsoft provides several ways to report issues and provide feedback on AVEVA Adapters.
+AVEVA provides several ways to report issues and provide feedback on AVEVA Adapters.
 
 ## Technical support
 
@@ -22,11 +22,11 @@ When you contact AVEVA PI Support, be prepared to provide this information:
 - Details of any environment changes prior to the start of the issue
 - Summary of the issue, including any relevant log files during the time the issue occurred 
 
-<!--To view a brief primer on AVEVA Adapters, see the [AVEVA Adapters playbook](https://customers.osisoft.com/s/knowledgearticle?knowledgeArticleUrl=Playbook-PI-adapters) in the AVEVA Customer Portal.-->
+<!--To view a brief primer on AVEVA Adapters, see the [AVEVA Adapters playbook](https://customers.osisoft.com/s/knowledgearticle?knowledgeArticleUrl=Playbook-PI-adapters) in the [AVEVA Customer Portal](https://my.osisoft.com/).-->
 
 ## Product feedback
 
-To submit product feedback for AVEVA Adapters, visit the [AVEVA Adapters feedback page](https://feedback.osisoft.com/forums/930280-pi-adapters). The product team at OSIsoft regularly monitors the page.
+To submit product feedback for AVEVA Adapters, visit the [AVEVA Adapters feedback page](https://feedback.osisoft.com/forums/930280-pi-adapters). The product team at AVEVA regularly monitors the page.
 
 ## Documentation feedback
 
