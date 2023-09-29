@@ -16,6 +16,8 @@ Data egress to a PI server creates a PI point in the AVEVA Adapter configuration
 
 The name of the PI point or AVEVA Data Hub stream is a combination of the StreamIdPrefix specified in the adapter data source configuration and the StreamId specified in the adapter data selection configuration.
 
+Starting with AVEVA PI System 2023, Adapters can send data using either Basic or OpenID Connect (OIDC) authentication. The PI Server and PI Web API must support and be configured for OIDC ahead of time.
+
 ## Configure egress endpoints
 
 Complete the following steps to configure egress endpoints. Use the `PUT` method in conjunction with the `http://localhost:5590/api/v1/configuration/OmfEgress/dataendpoints` REST endpoint to initialize the configuration.
